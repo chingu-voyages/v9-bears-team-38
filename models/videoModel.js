@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const videoSchema = mongoose.Schema({
-  title: {type: String, required: true},
-  url: {type: String, required: true},
-  category: {type: String, required: true},
-  description: {type: String, required: true},
-  tags: {type: String, required: true},
+  title: {type: String, required: [true, 'Title is required']},
+  url: {type: String, required: [true, 'URL is required']},
+  category: {type: String, required: [true, 'Category is required']},
+  description: {type: String, required: [true, 'Description is required']},
+  tags: {type: String, required: [true, 'At least one Tag is required']},
   starring: {type: String},
 });
 

@@ -8,9 +8,10 @@ const {Video} = require('../models/videoModel');
 
 router.get('/getvid', (req, res) => {
   Video.find()
-    .then(posts => {
-      res.json(posts.map(post => post.serialize()));
+    .then(videos => {
+      res.json(videos.map(vid => vid.serialize()));
     })
+    .then(console.log('Success!'))
     .catch(err => {
       console.error(err);
       res.status(500).json({error: 'something went terribly wrong'});
