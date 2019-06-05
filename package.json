@@ -7,7 +7,7 @@
     "test": "jest --coverage",
     "start": "node index.js",
     "server": " nodemon index.js",
-    "dev": "run-p server react",
+    "dev": "run-p server client",
     "client": "cd ./client && npm start"
   },
   "author": "Eric Zumwalt and Nick Haynes",
