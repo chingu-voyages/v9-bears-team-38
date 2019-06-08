@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const pino = require('express-pino-logger')();
+const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
 
@@ -10,11 +11,12 @@ const videoRouter = require('./routers/videoRouter');
 
 mongoose.Promise = global.Promise;
 const app = express();
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json({extended: false}));
 app.use(pino);
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'client/dist')));
-app.use('/api/video', videoRouter);
+app.use('/api', videoRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));

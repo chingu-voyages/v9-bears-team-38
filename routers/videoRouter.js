@@ -7,11 +7,11 @@ mongoose.Promise = global.Promise;
 const {Video} = require('../models/videoModel');
 
 router.get('/getvid', (req, res) => {
+  console.log(req.body);
   Video.find()
     .then(videos => {
-      res.json(videos.map(vid => vid.serialize()));
+      res.json(videos);
     })
-    .then(console.log('Success!'))
     .catch(err => {
       console.error(err);
       res.status(500).json({error: 'something went terribly wrong'});
@@ -19,15 +19,16 @@ router.get('/getvid', (req, res) => {
 });
 
 router.post('/addvid', (req, res) => {
-  const query = {'video.title': req.body.title};
-  const update = req.body;
-  Video.findOneAndUpdate(query, update, {upsert: true, new: true}, function(
-    error,
-    result,
-  ) {
-    if (error) return res.send(500, {error});
-    return res.send('Goal successfully updated');
-  });
+  let reqBody = req.body;
+  console.log(reqBody);
+  new Video(reqBody)
+    .save()
+    .then(result => {
+      res.send(result);
+    })
+    .catch(err => {
+      console.error(err);
+    });
 });
 
 module.exports = router;
