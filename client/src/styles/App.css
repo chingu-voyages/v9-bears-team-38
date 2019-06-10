@@ -1,4 +1,54 @@
+/* General normalizing */
+
 body {
+  max-width: 100vw;
+}
+
+/* Links */
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* CSS Variables */
+:root {
+  --font-main: ariel;
+  --font-title: san-serif;
+  --color-theme: #000;
+  --color-highlight: #fff;
+}
+
+/* Common Styles */
+
+.pm0 {
+  padding: 0;
+  margin: 0;
+}
+
+.fbc {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.fbr {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* App Component Styling */
+
+#app-container {
   background-color: #fff;
 }
 h1 {
