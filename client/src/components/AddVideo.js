@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import '../styles/AddVideo.css';
+
 const AddVideo = () => {
   //Local state for controlled htmlForm
   const [_title, setTitle] = useState('');
@@ -38,8 +40,8 @@ const AddVideo = () => {
   };
 
   return (
-    <div>
-      <form id='add-vid' onSubmit={addVideo}>
+    <div className='add-video-container fbc'>
+      <form id='add-vid-form' className='fbc' onSubmit={addVideo}>
         <label htmlFor='title'>Title:</label>
         <input
           type='text'
