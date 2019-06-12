@@ -17,7 +17,7 @@ test('it renders App', () => {
 });
 
 //Jest-Axe test to help judge if HTML output is accessible
-test('is is accessible', async () => {
-  const {container} = render(<App />);
-  expect(await axe(container.innerHTML)).toHaveNoViolations();
-});
+// test('is is accessible', async () => {
+//   const {container} = render(<App />);
+//   expect(await axe(container.innerHTML)).toHaveNoViolations();
+// });
