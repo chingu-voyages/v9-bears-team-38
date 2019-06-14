@@ -8,8 +8,14 @@ export default class App extends Component {
   render() {
     return (
       <div title='app-container'>
-        <h1 className='b'>Chingu Video Portal</h1>
-        <AddVideo />
+        <header className='fbr'>
+          <img
+            src='../src/imgs/ChinguLogo.png'
+            alt='Chingu Logo'
+            className='logo pm0'
+          />
+          <span className='b pm0 tc main-title'>Chingu Learning Portal</span>
+        </header>
       </div>
     );
   }
