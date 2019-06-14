@@ -19,6 +19,7 @@ a:active {
 :root {
   --font: 'Raleway', sans-serif;
   --color-theme: #16e28b;
+  --color-ltheme: #93e8c4;
   --color-bg: #080a38;
   --color-gray: #bbb;
   --color-lgray: #f8f8f8;
@@ -51,23 +52,28 @@ a:active {
 
 .b {
   font-weight: 600;
+  font-size: 1.8em;
 }
 
 .tc {
   color: var(--color-theme);
 }
 
-.bgc {
+.dbgc {
   background-color: var(--color-bg);
+}
+
+.lbgc {
+  background-color: var(--color-ltheme);
 }
 
 /* App Component Styling */
 
 #app-container {
   display: grid;
-  grid-template-columns: [c1] 1fr [c2] 3fr [c3];
+  grid-template-columns: [c1] 2fr [c2] 5fr [c3];
   grid-template-rows: [r1] 100px [r2] 1fr [r3] 3fr [r4];
-  grid-gap: 10px;
+  grid-gap: 0;
   background-color: #fff;
 }
 
@@ -87,7 +93,8 @@ header {
   font-size: 2em;
 }
 
-nav {
+.nav {
+  justify-content: flex-start;
   grid-column: c1 / c2;
   grid-row: r2 / r4;
   width: 100%;
@@ -95,16 +102,19 @@ nav {
 }
 
 .playlists {
-  margin: 2em 0 0.5em 1em;
+  margin: 2em 0 0.5em 0;
+  color: var(--color-bg);
+  font-variant: small-caps;
 }
 
 ul {
-  color: #fff;
+  color: #000;
   list-style-type: none;
 }
 
 li {
-  margin: 0.5em 0;
+  padding: 0;
+  margin: 0 0 0.5em -2em;
   cursor: pointer;
 }
 

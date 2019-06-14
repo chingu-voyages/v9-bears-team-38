@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div id='app-container' title='app-container'>
-        <header className='fbr bgc'>
+        <header className='fbr dbgc'>
           <img
             src='../src/imgs/ChinguLogo.png'
             alt='Chingu Logo'
@@ -16,8 +16,8 @@ export default class App extends Component {
           />
           <h1 className='b pm0 tc main-title'>Chingu Learning Portal</h1>
         </header>
-        <nav className='bgc'>
-          <h2 className='b tc playlists'>Playlists</h2>
+        <nav className='lbgc fbc nav'>
+          <h2 className='b playlists'>Playlists</h2>
           <ul>
             <li>Chingu AMAs</li>
             <li>Tutorials</li>
