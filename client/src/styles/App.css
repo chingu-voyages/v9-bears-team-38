@@ -1,6 +1,8 @@
 /* General normalizing */
 
 body {
+  font-family: var(--font);
+  font-weight: 400;
   max-width: 100vw;
 }
 
@@ -15,8 +17,7 @@ a:active {
 
 /* CSS Variables */
 :root {
-  --font-main: ariel;
-  --font-title: san-serif;
+  --font: 'Raleway', sans-serif;
   --color-theme: #000;
   --color-highlight: #fff;
 }
@@ -46,11 +47,16 @@ a:active {
   cursor: pointer;
 }
 
+.b {
+  font-weight: 600;
+}
+
 /* App Component Styling */
 
 #app-container {
   background-color: #fff;
 }
+
 h1 {
   color: #000;
   text-align: center;

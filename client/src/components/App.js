@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div title='app-container'>
-        <h1>Chingu Video Portal</h1>
+        <h1 className='b'>Chingu Video Portal</h1>
         <AddVideo />
       </div>
     );
