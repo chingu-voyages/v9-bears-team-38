@@ -93,6 +93,20 @@ header {
   font-size: 2em;
 }
 
+#search {
+  width: 200px;
+  padding-left: 0.4em;
+  margin: 0 2em 0 5em;
+  color: #fff;
+  background-color: var(--color-bg);
+  border: 1px solid #fff;
+}
+
+#search::placeholder {
+  color: var(--color-gray);
+  font-style: italic;
+}
+
 .nav {
   justify-content: flex-start;
   grid-column: c1 / c2;
@@ -124,4 +138,17 @@ main {
   max-width: 100%;
   height: calc(100vh - 120px);
   background-color: var(--color-lgray);
+}
+
+.most-recent {
+  width: 95%;
+  height: 33%;
+  background-color: #fff;
+  border-bottom: 15px solid var(--color-lgray);
+}
+
+.other-vids {
+  width: 95%;
+  height: 63%;
+  background-color: #fff;
 }
