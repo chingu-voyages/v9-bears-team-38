@@ -18,8 +18,10 @@ a:active {
 /* CSS Variables */
 :root {
   --font: 'Raleway', sans-serif;
-  --color-theme: #000;
-  --color-highlight: #fff;
+  --color-theme: #16e28b;
+  --color-bg: #080a38;
+  --color-gray: #bbb;
+  --color-lgray: #f8f8f8;
 }
 
 /* Common Styles */
