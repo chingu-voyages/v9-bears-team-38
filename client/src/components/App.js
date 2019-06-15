@@ -9,12 +9,16 @@ export default class App extends Component {
     showNav: false,
   };
 
+  handleShowTray = () => {
+    !!this.state.showTray
+      ? this.setState({showTray: false})
+      : this.setState({showTray: true});
+  };
+
   handleShowNav = () => {
     !!this.state.showNav
       ? this.setState({showNav: false})
       : this.setState({showNav: true});
-    let carrot = document.getElementById('menu-carrot');
-    carrot.classList.toggle('flip');
   };
 
   render() {
@@ -27,13 +31,20 @@ export default class App extends Component {
             className='logo pm0'
           />
           <h1 className='b pm0 tc main-title'>Chingu Learning Portal</h1>
-          <input
-            type='text'
-            id='search'
-            name='search'
-            aria-label='Search'
-            placeholder='Search videos ...'
-          />
+          <div className={!!this.state.showTray ? 'tray show-tray' : 'tray'}>
+            <i className='fas fa-chevron-left' onClick={this.handleShowTray} />
+            <input
+              type='text'
+              id='search'
+              name='search'
+              aria-label='Search'
+              placeholder='Search videos ...'
+            />
+            <p className='tc pointer tp1' onClick={this.handleShowNav}>
+              Playlists
+            </p>
+            <p className='tc pointer tp2'>Admin</p>
+          </div>
         </header>
         <nav
           className={
@@ -45,11 +56,6 @@ export default class App extends Component {
             <li>Tutorials</li>
             <li>Voyage 8</li>
           </ul>
-          <i
-            className='fas fa-caret-square-down fa-lg'
-            id='menu-carrot'
-            onClick={this.handleShowNav}
-          />
         </nav>
         <main className='fbc'>
           <section className='most-recent'>MOST RECENT VID</section>
