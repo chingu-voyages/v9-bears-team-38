@@ -11,8 +11,10 @@ export default class App extends Component {
 
   handleShowNav = () => {
     !!this.state.showNav
-      ? setState({showNav: false})
-      : setState({showNav: true});
+      ? this.setState({showNav: false})
+      : this.setState({showNav: true});
+    let carrot = document.getElementById('menu-carrot');
+    carrot.classList.toggle('flip');
   };
 
   render() {
@@ -35,7 +37,7 @@ export default class App extends Component {
         </header>
         <nav
           className={
-            !!this.state.showNav ? 'lbgc fbc nav' : 'lbgc fbc nav hide-nav'
+            !!this.state.showNav ? 'lbgc fbc nav show-nav' : 'lbgc fbc nav'
           }>
           <h2 className='b playlists'>Playlists</h2>
           <ul>
@@ -43,6 +45,11 @@ export default class App extends Component {
             <li>Tutorials</li>
             <li>Voyage 8</li>
           </ul>
+          <i
+            className='fas fa-caret-square-down fa-lg'
+            id='menu-carrot'
+            onClick={this.handleShowNav}
+          />
         </nav>
         <main className='fbc'>
           <section className='most-recent'>MOST RECENT VID</section>
