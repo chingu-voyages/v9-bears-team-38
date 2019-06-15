@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     return (
       <div id='app-container' title='app-container'>
-        <header className='fbr dbgc'>
+        <header className='dbgc header'>
           <img
             src='../src/imgs/ChinguLogo.png'
             alt='Chingu Logo'
@@ -22,7 +22,6 @@ export default class App extends Component {
             aria-label='Search'
             placeholder='Search videos ...'
           />
-          <p className='tc pointer'>Admin Login</p>
         </header>
         <nav className='lbgc fbc nav'>
           <h2 className='b playlists'>Playlists</h2>
@@ -36,6 +35,9 @@ export default class App extends Component {
           <section className='most-recent'>MOST RECENT VID</section>
           <section className='other-vids'>OTHER VIDS</section>
         </main>
+        <footer>
+          <p className='tc pointer'>Admin Login</p>
+        </footer>
       </div>
     );
   }
