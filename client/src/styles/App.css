@@ -70,21 +70,25 @@ a:active {
 /* App Component Styling */
 
 #app-container {
+  position: relative;
   display: grid;
-  grid-template-columns: [c1] 1fr [c2] 1fr [c3];
-  grid-template-rows: [r1] 100px [r2] 1fr [r3] 3fr [r3];
+  grid-template-columns: [c1] 1fr [c2];
+  grid-template-rows: [r1] 100px [r2] 1fr [r3] 50px [r4];
   grid-gap: 0;
+  max-width: 100vw;
+  min-height: 100vh;
   background-color: #fff;
 }
 
 .header {
-  grid-column: c1 / c3;
+  grid-column: c1 / c2;
   grid-row: r1 / r2;
   display: grid;
   grid-template-columns: [hc1] 1fr [hc2] 3fr [hc3];
   grid-template-rows: [hr1] 50px [hr2] 50px [hr3];
   width: 100%;
   height: 100px;
+  z-index: 3;
 }
 
 .logo {
@@ -129,11 +133,18 @@ a:active {
 }
 
 .nav {
-  justify-content: flex-start;
+  position: absolute;
   grid-column: c1 / c2;
   grid-row: r2 / r3;
+  justify-content: flex-start;
   width: 100%;
   height: calc(100vh - 120px);
+  transition-duration: 300ms;
+  z-index: 2;
+}
+
+.hide-nav {
+  top: -200px;
 }
 
 .playlists {
@@ -154,7 +165,7 @@ li {
 }
 
 main {
-  grid-column: c2 / c3;
+  grid-column: c1 / c2;
   grid-row: r2 / r3;
   max-width: 100%;
   height: calc(100vh - 120px);
@@ -174,6 +185,11 @@ main {
   background-color: #fff;
 }
 
+footer {
+  grid-column: c1 / c2;
+  grid-row: r3 / r4;
+}
+
 @media only screen and (min-width: 600px) {
   #app-container {
     display: grid;
@@ -190,5 +206,13 @@ main {
   .main-title {
     margin-left: 0.3em;
     font-size: 2em;
+  }
+
+  .nav {
+    justify-content: flex-start;
+    grid-column: c1 / c2;
+    grid-row: r2 / r3;
+    width: 100%;
+    height: calc(100vh - 120px);
   }
 }

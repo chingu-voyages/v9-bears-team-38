@@ -5,6 +5,10 @@ import AddVideo from './AddVideo.js';
 import '../styles/App.css';
 
 export default class App extends Component {
+  state = {
+    showNav: true,
+  };
+
   render() {
     return (
       <div id='app-container' title='app-container'>
@@ -22,9 +26,11 @@ export default class App extends Component {
             aria-label='Search'
             placeholder='Search videos ...'
           />
-          <i className='fas fa-search' />
         </header>
-        <nav className='lbgc fbc nav'>
+        <nav
+          className={
+            !!this.state.showNav ? 'lbgc fbc nav' : 'lbgc fbc nav hide-nav'
+          }>
           <h2 className='b playlists'>Playlists</h2>
           <ul>
             <li>Chingu AMAs</li>
