@@ -6,7 +6,13 @@ import '../styles/App.css';
 
 export default class App extends Component {
   state = {
-    showNav: true,
+    showNav: false,
+  };
+
+  handleShowNav = () => {
+    !!this.state.showNav
+      ? setState({showNav: false})
+      : setState({showNav: true});
   };
 
   render() {

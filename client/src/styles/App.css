@@ -138,13 +138,14 @@ a:active {
   grid-row: r2 / r3;
   justify-content: flex-start;
   width: 100%;
-  height: calc(100vh - 120px);
+  height: 500px;
+  border-bottom: 20px solid #000;
   transition-duration: 300ms;
   z-index: 2;
 }
 
 .hide-nav {
-  top: -200px;
+  top: -500px;
 }
 
 .playlists {
