@@ -103,7 +103,7 @@ a:active {
 .main-title {
   grid-column: hc2 / hc3;
   grid-row: hr1 / hr3;
-  margin: auto;
+  margin: auto auto auto 0.2em;
   font-size: 1.3em;
 }
 
