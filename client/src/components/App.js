@@ -22,6 +22,7 @@ export default class App extends Component {
             aria-label='Search'
             placeholder='Search videos ...'
           />
+          <i className='fas fa-search' />
         </header>
         <nav className='lbgc fbc nav'>
           <h2 className='b playlists'>Playlists</h2>
