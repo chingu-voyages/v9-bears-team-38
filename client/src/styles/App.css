@@ -227,19 +227,67 @@ footer {
 @media only screen and (min-width: 600px) {
   #app-container {
     display: grid;
-    grid-template-columns: [c1] 2fr [c2] 5fr [c3];
+    grid-template-columns: [c1] 1.5fr [c2] 5fr [c3];
     grid-template-rows: [r1] 100px [r2] 1fr [r3];
     grid-gap: 0;
     background-color: #fff;
   }
 
+  .header {
+    grid-column: c1 / c3;
+    grid-row: r1 / r2;
+    display: grid;
+    grid-template-columns: [hc1] 1fr [hc2] 1.5fr [hc3] 1fr [hc4];
+    grid-template-rows: [hr1] 50px [hr2] 50px [hr3];
+    width: 100%;
+    height: 100px;
+    z-index: 3;
+  }
+
   .logo {
+    width: 80px;
     height: 80px;
   }
 
   .main-title {
     margin-left: 0.3em;
     font-size: 2em;
+  }
+
+  .tray {
+    position: relative;
+    grid-column: hc3 / hc4;
+    grid-row: hr1 / hr3;
+    display: grid;
+    grid-template-columns: [tc1] 1fr [tc2];
+    grid-template-rows: [tr1] 1fr [tr2];
+    background-color: var(--color-bg);
+    border: none;
+  }
+
+  #search {
+    grid-column: tc1 / tc2;
+    grid-row: tr1 / tr2;
+    width: 200px;
+    margin: auto auto auto 0;
+    border: 1px solid #fff;
+    overflow: hidden;
+    transition-duration: 400ms;
+  }
+
+  .tp1 {
+    display: none;
+  }
+
+  .tp2 {
+    grid-column: tc1 / tc2;
+    grid-row: tr1 / tr2;
+    margin: auto auto auto 220px;
+    font-size: 0.8em;
+  }
+
+  .fas {
+    display: none;
   }
 
   .nav {
