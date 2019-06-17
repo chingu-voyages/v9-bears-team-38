@@ -20,9 +20,10 @@ a:active {
   --font: 'Raleway', sans-serif;
   --color-theme: #16e28b;
   --color-ltheme: #93e8c4;
-  --color-bg: #080a38;
+  --color-bg: #000;
   --color-gray: #bbb;
   --color-lgray: #f8f8f8;
+  --color-dblue: #080a38;
 }
 
 /* Common Styles */
@@ -114,7 +115,7 @@ a:active {
   display: grid;
   grid-template-columns: [tc1] 20px [tc2] 1fr [tc3] 1fr [tc4];
   grid-template-rows: [tr1] 1fr [tr2] 1fr [tr3];
-  background-color: #000;
+  background-color: #080a38;
   border-left: 1px solid var(--color-lgray);
   overflow: hidden;
   transition-delay: 300ms;
