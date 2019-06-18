@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import App from '../components/App.js';
+
 import {render} from '@testing-library/react';
 import '@testing-library/react/cleanup-after-each';
 
@@ -15,9 +17,3 @@ test('it renders App', () => {
   debug();
   expect(app).toBeInTheDocument();
 });
-
-//Jest-Axe test to help judge if HTML output is accessible
-// test('is is accessible', async () => {
-//   const {container} = render(<App />);
-//   expect(await axe(container.innerHTML)).toHaveNoViolations();
-// });
