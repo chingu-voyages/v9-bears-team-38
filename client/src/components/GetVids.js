@@ -9,6 +9,7 @@ const GetVids = () => {
     })
       .then(response => response.json())
       .then(videos => {
+        console.log(videos);
         setVids(videos);
       });
   }, []);
@@ -16,10 +17,24 @@ const GetVids = () => {
   return (
     <ul className='all-vids'>
       {!!vids &&
-        vids.map((vid, i) => {
+        vids.map(vid => {
           return (
-            <li className='video' key={i}>
-              {vid.title}
+            <li className='video' key={vid._id}>
+              <div>
+                <iframe
+                  width='560'
+                  height='315'
+                  src={vid.url}
+                  frameBorder='0'
+                  allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+                  allowFullScreen
+                />
+                <ul>
+                  <li>{vid.title}</li>
+                  <li>{vid.category}</li>
+                  <li>{vid.date}</li>
+                </ul>
+              </div>
             </li>
           );
         })}
