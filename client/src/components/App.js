@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import AddVideo from './AddVideo.js';
+import GetVids from './GetVids.js';
 
 import '../styles/App.css';
 
@@ -58,10 +59,7 @@ export default class App extends Component {
             <li>Voyage 8</li>
           </ul>
         </nav>
-        <main className='fbc'>
-          <section className='most-recent'>MOST RECENT VID</section>
-          <section className='other-vids'>OTHER VIDS</section>
-        </main>
+        <main className='fbc'>{/* <AddVideo />  <GetVids /> */}</main>
         <footer>
           <p className='tc pointer'>Admin Login</p>
         </footer>

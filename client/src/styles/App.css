@@ -298,4 +298,9 @@ footer {
     width: 100%;
     height: calc(100vh - 120px);
   }
+
+  main {
+    grid-column: c2 / c3;
+    grid-row: r2 / r3;
+  }
 }
