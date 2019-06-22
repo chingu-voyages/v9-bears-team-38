@@ -11,3 +11,13 @@
   min-height: 190px;
   margin-top: 0.2em;
 }
+
+.tile-icon {
+  justify-content: space-around;
+  width: 25%;
+}
+
+.fa-question-circle {
+  border-radius: 50%;
+  background-color: var(--color-ltheme);
+}

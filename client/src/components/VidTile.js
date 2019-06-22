@@ -12,11 +12,16 @@ const VidTile = ({vidObj}) => {
         allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
       />
-      <ul className='vid-info'>
-        <li>{vidObj.title}</li>
-        <li>{vidObj.category}</li>
-        <li>{vidObj.date}</li>
-      </ul>
+      <div className='fbr tile-info'>
+        <span className='fbc pm0 tile-icon'>
+          <i className='far fa-question-circle fa-2x' />
+          <p className='pm0'>AMA</p>
+        </span>
+        <ul className='vid-info'>
+          <li>{vidObj.title}</li>
+          <li>{vidObj.date}</li>
+        </ul>
+      </div>
     </li>
   );
 };
