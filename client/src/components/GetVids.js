@@ -19,7 +19,7 @@ const GetVids = () => {
   }, []);
 
   return (
-    <ul className='all-vids'>
+    <ul className='pm0 all-vids'>
       {!!vids &&
         vids.map(vid => {
           return <VidTile vidObj={vid} key={vid.title} />;

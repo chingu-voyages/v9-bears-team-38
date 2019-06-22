@@ -1,0 +1,13 @@
+@import './App.css';
+
+.vid-tile {
+  width: 100%;
+  margin: 0.2em auto;
+}
+
+.vid-src {
+  width: 100vw;
+  max-width: 400px;
+  min-height: 190px;
+  margin-top: 0.2em;
+}
