@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from 'react';
 
+import VidTile from './VidTile.js';
+
+import '../styles/GetVids.css';
+
 const GetVids = () => {
   const [vids, setVids] = useState(null);
 
@@ -18,25 +22,7 @@ const GetVids = () => {
     <ul className='all-vids'>
       {!!vids &&
         vids.map(vid => {
-          return (
-            <li className='video' key={vid._id}>
-              <div>
-                <iframe
-                  width='560'
-                  height='315'
-                  src={vid.url}
-                  frameBorder='0'
-                  allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-                  allowFullScreen
-                />
-                <ul>
-                  <li>{vid.title}</li>
-                  <li>{vid.category}</li>
-                  <li>{vid.date}</li>
-                </ul>
-              </div>
-            </li>
-          );
+          return <VidTile vidObj={vid} key={vid.title} />;
         })}
     </ul>
   );

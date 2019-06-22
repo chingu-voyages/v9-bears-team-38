@@ -1,5 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import App from './components/App.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));
+
+module.hot.accept('./components/App.js', () => {
+  const NextApp = require('./components/App.js').default;
+  render(<NextApp />, document.getElementById('root'));
+});

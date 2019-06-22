@@ -59,7 +59,9 @@ export default class App extends Component {
             <li>Voyage 8</li>
           </ul>
         </nav>
-        <main className='fbc' />
+        <main className='fbc'>
+          <GetVids />
+        </main>
         <footer>
           <p className='tc pointer'>Admin Login</p>
         </footer>
