@@ -1,10 +1,19 @@
 import React from 'react';
 import {render} from 'react-dom';
+
+import {AppContainer} from 'react-hot-loader';
 import App from './components/App.js';
 
-render(<App />, document.getElementById('root'));
+render(
+  <AppContainer>
+    <App />
+  </AppContainer>,
+  document.getElementById('root'),
+);
 
-module.hot.accept('./components/App.js', () => {
-  const NextApp = require('./components/App.js').default;
-  render(<NextApp />, document.getElementById('root'));
-});
+if (module.hot) {
+  module.hot.accept('./components/App.js', () => {
+    const NextApp = require('./components/App.js').default;
+    render(<NextApp />, document.getElementById('root'));
+  });
+}
