@@ -25,7 +25,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div id='app-container' title='app-container'>
+      <div id='app-container' className='pm0' title='app-container'>
         <header className='dbgc header'>
           <img
             src='../src/imgs/ChinguLogo.png'
@@ -59,8 +59,7 @@ export default class App extends Component {
             <li>Voyage 8</li>
           </ul>
         </nav>
-        <main className='fbc'>{/* <AddVideo />
-          <GetVids /> */}</main>
+        <main className='fbc' />
         <footer>
           <p className='tc pointer'>Admin Login</p>
         </footer>
