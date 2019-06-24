@@ -2,7 +2,7 @@
 
 .vid-tile {
   width: 100%;
-  margin: 0.2em auto;
+  margin: 2em auto;
 }
 
 .vid-src {
@@ -20,4 +20,16 @@
 .fa-question-circle {
   border-radius: 50%;
   background-color: var(--color-ltheme);
+}
+
+.vid-info {
+  max-width: 400px;
+}
+
+.vid-items {
+  padding: 0.2em;
+}
+
+.vid-tags {
+  font-size: 0.8em;
 }
