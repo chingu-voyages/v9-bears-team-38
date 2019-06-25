@@ -1,0 +1,6 @@
+@import './App.css';
+
+.all-vids {
+  width: 100%;
+  min-height: calc(100vh - 150px);
+}

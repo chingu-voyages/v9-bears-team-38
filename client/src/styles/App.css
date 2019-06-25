@@ -4,6 +4,8 @@ body {
   font-family: var(--font);
   font-weight: 400;
   max-width: 100vw;
+  padding: 0;
+  margin: 0;
 }
 
 /* Links */
@@ -196,7 +198,6 @@ ul {
 li {
   padding: 0;
   margin: 0 0 0.5em -2em;
-  cursor: pointer;
 }
 
 main {
@@ -297,5 +298,10 @@ footer {
     grid-row: r2 / r3;
     width: 100%;
     height: calc(100vh - 120px);
+  }
+
+  main {
+    grid-column: c2 / c3;
+    grid-row: r2 / r3;
   }
 }

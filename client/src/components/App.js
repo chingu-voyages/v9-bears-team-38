@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
+import {hot} from 'react-hot-loader/root';
 
 import AddVideo from './AddVideo.js';
+import GetVids from './GetVids.js';
 
 import '../styles/App.css';
 
-export default class App extends Component {
+class App extends Component {
   state = {
     showNav: false,
+    showTray: false,
   };
 
   handleShowTray = () => {
@@ -23,7 +26,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div id='app-container' title='app-container'>
+      <div id='app-container' className='pm0' title='app-container'>
         <header className='dbgc header'>
           <img
             src='../src/imgs/ChinguLogo.png'
@@ -52,14 +55,13 @@ export default class App extends Component {
           }>
           <h2 className='b playlists'>Playlists</h2>
           <ul>
-            <li>Chingu AMAs</li>
-            <li>Tutorials</li>
-            <li>Voyage 8</li>
+            <li className='pointer'>Chingu AMAs</li>
+            <li className='pointer'>Tutorials</li>
+            <li className='pointer'>Voyage 8</li>
           </ul>
         </nav>
         <main className='fbc'>
-          <section className='most-recent'>MOST RECENT VID</section>
-          <section className='other-vids'>OTHER VIDS</section>
+          <GetVids />
         </main>
         <footer>
           <p className='tc pointer'>Admin Login</p>
@@ -68,3 +70,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default hot(App);
