@@ -55,9 +55,9 @@ class App extends Component {
           }>
           <h2 className='b playlists'>Playlists</h2>
           <ul>
-            <li>Chingu AMAs</li>
-            <li>Tutorials</li>
-            <li>Voyage 8</li>
+            <li className='pointer'>Chingu AMAs</li>
+            <li className='pointer'>Tutorials</li>
+            <li className='pointer'>Voyage 8</li>
           </ul>
         </nav>
         <main className='fbc'>

@@ -1,5 +1,9 @@
 @import './App.css';
 
+p {
+  text-indent: 0.5em;
+}
+
 .vid-tile {
   width: 100%;
   margin: 2em auto;
@@ -12,24 +16,50 @@
   margin-top: 0.2em;
 }
 
-.tile-icon {
-  justify-content: space-around;
-  width: 25%;
-}
-
 .fa-question-circle {
   border-radius: 50%;
   background-color: var(--color-ltheme);
 }
 
 .vid-info {
+  display: grid;
+  grid-template-columns: [vc1] 1fr [vc2] 3fr [vc3];
+  grid-template-rows: [vr1] 40px [vr2] 60px [vr3] 60px [vr4];
+  grid-gap: 0;
+  width: 100%;
   max-width: 400px;
 }
 
-.vid-items {
-  padding: 0.2em;
+.vid-title {
+  grid-column: vc1 / vc3;
+  grid-row: vr1 / vr2;
+  max-width: 100%;
+  padding-left: 0.3em;
+  margin: auto 0 auto 0.5em;
+  border-left: 2px solid #000;
+}
+
+.vid-desc {
+  grid-column: vc1 / vc3;
+  grid-row: vr2 / vr3;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.tile-icon {
+  grid-column: vc1 / vc2;
+  grid-row: vr3 / vr4;
+  width: 100%;
+  padding: 0;
+  margin: auto;
 }
 
 .vid-tags {
-  font-size: 0.8em;
+  grid-column: vc2 / vc3;
+  grid-row: vr3 / vr4;
+  width: 100%;
+  padding: 0;
+  margin: auto auto auto 0;
 }

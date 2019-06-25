@@ -15,8 +15,8 @@ const VidTile = ({vidObj}) => {
         allowFullScreen
       />
       <div className='vid-info'>
-        <h3>{vidObj.title}</h3>
-        <span className='vid-items'>{vidObj.description}</span>
+        <h3 className='vid-title'> {vidObj.title}</h3>
+        <p className='vid-desc'>{vidObj.description}</p>
         <VideoIcon category={vidObj.category} />
         <span className='pm0 vid-tags'>Tags: {vidObj.tags}</span>
       </div>
