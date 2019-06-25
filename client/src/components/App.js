@@ -12,6 +12,17 @@ class App extends Component {
     showTray: false,
   };
 
+  componentDidMount() {
+    fetch('http://localhost:8000/api/getvid', {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(videos => {
+        console.log(videos);
+        this.setState({videos});
+      });
+  }
+
   handleShowTray = () => {
     !!this.state.showTray
       ? this.setState({showTray: false})
@@ -61,7 +72,7 @@ class App extends Component {
           </ul>
         </nav>
         <main className='fbc'>
-          <GetVids />
+          <GetVids vids={this.state.videos} />
         </main>
         <footer>
           <p className='tc pointer'>Admin Login</p>

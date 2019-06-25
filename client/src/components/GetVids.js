@@ -4,19 +4,19 @@ import VidTile from './VidTile.js';
 
 import '../styles/GetVids.css';
 
-const GetVids = () => {
-  const [vids, setVids] = useState(null);
+const GetVids = ({vids}) => {
+  // const [vids, setVids] = useState(null);
 
-  useEffect(() => {
-    fetch('http://localhost:8000/api/getvid', {
-      method: 'GET',
-    })
-      .then(response => response.json())
-      .then(videos => {
-        console.log(videos);
-        setVids(videos);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:8000/api/getvid', {
+  //     method: 'GET',
+  //   })
+  //     .then(response => response.json())
+  //     .then(videos => {
+  //       console.log(videos);
+  //       setVids(videos);
+  //     });
+  // }, []);
 
   return (
     <ul className='pm0 all-vids'>
