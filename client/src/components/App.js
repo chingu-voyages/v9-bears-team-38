@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {hot} from 'react-hot-loader/root';
 
 import AddVideo from './AddVideo.js';
 import GetVids from './GetVids.js';
 
 import '../styles/App.css';
 
-export default class App extends Component {
+class App extends Component {
   state = {
     showNav: false,
     showTray: false,
@@ -69,3 +70,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default hot(App);
