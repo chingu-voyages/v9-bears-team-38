@@ -16,15 +16,16 @@ p {
   margin-top: 0.2em;
 }
 
-.fa-question-circle {
-  border-radius: 50%;
+.far {
+  padding: 0.1em;
+  border-radius: 20%;
   background-color: var(--color-ltheme);
 }
 
 .vid-info {
   display: grid;
-  grid-template-columns: [vc1] 1fr [vc2] 3fr [vc3];
-  grid-template-rows: [vr1] 40px [vr2] 60px [vr3] 60px [vr4];
+  grid-template-columns: [vc1] 1fr [vc2] 4fr [vc3];
+  grid-template-rows: [vr1] 45px [vr2] 60px [vr3] 40px [vr4];
   grid-gap: 0;
   width: 100%;
   max-width: 400px;
@@ -35,31 +36,33 @@ p {
   grid-row: vr1 / vr2;
   max-width: 100%;
   padding-left: 0.3em;
-  margin: auto 0 auto 0.5em;
+  margin: auto;
   border-left: 2px solid #000;
-}
-
-.vid-desc {
-  grid-column: vc1 / vc3;
-  grid-row: vr2 / vr3;
-  width: 100%;
-  padding: 0;
-  margin: 0 auto;
-  font-style: italic;
+  text-align: center;
 }
 
 .tile-icon {
   grid-column: vc1 / vc2;
-  grid-row: vr3 / vr4;
+  grid-row: vr2 / vr4;
   width: 100%;
   padding: 0;
-  margin: auto;
+  margin: 0;
+  border-right: 1px solid #000;
+}
+
+.vid-desc {
+  grid-column: vc2 / vc3;
+  grid-row: vr2 / vr3;
+  width: 100%;
+  padding-left: 0.5em;
+  margin: 0 auto;
+  font-style: italic;
 }
 
 .vid-tags {
   grid-column: vc2 / vc3;
   grid-row: vr3 / vr4;
   width: 100%;
-  padding: 0;
-  margin: auto auto auto 0;
+  padding-left: 0.5em;
+  margin: auto;
 }
