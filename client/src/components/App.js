@@ -10,9 +10,11 @@ class App extends Component {
   state = {
     showNav: false,
     showTray: false,
+    searchQuery: '',
   };
 
   componentDidMount() {
+    //Fetch all videos
     fetch('http://localhost:8000/api/getvid', {
       method: 'GET',
     })
@@ -23,13 +25,20 @@ class App extends Component {
       });
   }
 
+  handleSearchInput = e => {
+    e.preventDefault();
+    this.setState({searchQuery: e.target.value});
+  };
+
   handleShowTray = () => {
+    //Toggles showing the "tray" on mobile
     !!this.state.showTray
       ? this.setState({showTray: false})
       : this.setState({showTray: true});
   };
 
   handleShowNav = () => {
+    //Toggles showing the playlist menu on mobile
     !!this.state.showNav
       ? this.setState({showNav: false})
       : this.setState({showNav: true});
@@ -53,6 +62,7 @@ class App extends Component {
               name='search'
               aria-label='Search'
               placeholder='Search videos ...'
+              onChange={this.handleSearchInput}
             />
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
