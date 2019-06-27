@@ -23,7 +23,7 @@ class App extends Component {
       .then(response => response.json())
       .then(videos => {
         console.log(videos);
-        this.setState({videos});
+        this.setState({videos: videos, displayedVideos: videos});
       });
   }
 
@@ -35,9 +35,10 @@ class App extends Component {
 
   handleSearch = query => {
     const match = new RegExp(escapeRegExp(query), 'i');
-    const searchResults = this.state.videos.filter(video => {
-      match.test(video.title);
-    });
+    const searchResults = this.state.videos.filter(video =>
+      match.test(video.title),
+    );
+    console.log(this.state.videos);
     this.setState({displayedVideos: searchResults});
   };
 
@@ -76,7 +77,12 @@ class App extends Component {
                 placeholder='Search videos ...'
                 onChange={this.handleSearchInput}
               />
-              <i className='fas fa-search pointer' />
+              <i
+                className='fas fa-search pointer'
+                onClick={() => {
+                  this.handleSearch(this.state.searchQuery);
+                }}
+              />
             </div>
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
@@ -96,7 +102,7 @@ class App extends Component {
           </ul>
         </nav>
         <main className='fbc'>
-          <GetVids vids={this.state.videos} />
+          <GetVids vids={this.state.displayedVideos} />
         </main>
         <footer>
           <p className='tc pointer'>Admin Login</p>
