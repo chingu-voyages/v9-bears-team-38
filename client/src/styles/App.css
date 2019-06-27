@@ -281,11 +281,11 @@ footer {
   .search-box {
     grid-column: tc1 / tc2;
     grid-row: tr1 / tr2;
+    margin: auto auto auto 0;
   }
 
   #search {
     width: 200px;
-    margin: auto auto auto 0;
     border: 1px solid #fff;
   }
 

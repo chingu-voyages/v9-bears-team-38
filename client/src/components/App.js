@@ -3,7 +3,7 @@ import {hot} from 'react-hot-loader/root';
 import escapeRegExp from 'escape-string-regexp';
 
 import AddVideo from './AddVideo.js';
-import GetVids from './GetVids.js';
+import DisplayedVids from './DisplayedVids.js';
 
 import '../styles/App.css';
 
@@ -104,7 +104,7 @@ class App extends Component {
           </ul>
         </nav>
         <main className='fbc'>
-          <GetVids vids={this.state.displayedVideos} />
+          <DisplayedVids vids={this.state.displayedVideos} />
         </main>
         <footer>
           <p className='tc pointer'>Admin Login</p>
