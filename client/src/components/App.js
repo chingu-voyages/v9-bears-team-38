@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {hot} from 'react-hot-loader/root';
+import escapeRegExp from 'escape-string-regexp';
 
 import AddVideo from './AddVideo.js';
 import GetVids from './GetVids.js';
@@ -32,7 +33,13 @@ class App extends Component {
     this.setState({searchQuery: e.target.value});
   };
 
-  handleSearch = query => {};
+  handleSearch = query => {
+    const match = new RegExp(escapeRegExp(query), 'i');
+    const searchResults = this.state.videos.filter(video => {
+      match.test(video.title);
+    });
+    this.setState({displayedVideos: searchResults});
+  };
 
   handleShowTray = () => {
     //Toggles showing the "tray" on mobile
