@@ -67,14 +67,17 @@ class App extends Component {
           <h1 className='b pm0 tc main-title'>Chingu Learning Portal</h1>
           <div className={!!this.state.showTray ? 'tray show-tray' : 'tray'}>
             <i className='fas fa-chevron-left' onClick={this.handleShowTray} />
-            <input
-              type='text'
-              id='search'
-              name='search'
-              aria-label='Search'
-              placeholder='Search videos ...'
-              onChange={this.handleSearchInput}
-            />
+            <div className='search-box'>
+              <input
+                type='text'
+                id='search'
+                name='search'
+                aria-label='Search'
+                placeholder='Search videos ...'
+                onChange={this.handleSearchInput}
+              />
+              <i className='fas fa-search pointer' />
+            </div>
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
             </p>
