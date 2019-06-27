@@ -35,9 +35,11 @@ class App extends Component {
 
   handleSearch = query => {
     const match = new RegExp(escapeRegExp(query), 'i');
-    const searchResults = this.state.videos.filter(video =>
-      match.test(video.title),
-    );
+    const searchResults = this.state.videos.filter(video => {
+      if (match.test(video.title) || match.test(video.tags) === true) {
+        return true;
+      }
+    });
     console.log(this.state.videos);
     this.setState({displayedVideos: searchResults});
   };
