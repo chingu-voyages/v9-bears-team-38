@@ -10,6 +10,7 @@ class App extends Component {
   state = {
     showNav: false,
     showTray: false,
+    displayedVideos: null,
     searchQuery: '',
   };
 
@@ -26,9 +27,12 @@ class App extends Component {
   }
 
   handleSearchInput = e => {
+    //Search input goes through state
     e.preventDefault();
     this.setState({searchQuery: e.target.value});
   };
+
+  handleSearch = query => {};
 
   handleShowTray = () => {
     //Toggles showing the "tray" on mobile
