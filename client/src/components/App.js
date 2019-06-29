@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {hot} from 'react-hot-loader/root';
+import escapeRegExp from 'escape-string-regexp';
 
 import AddVideo from './AddVideo.js';
-import GetVids from './GetVids.js';
+import DisplayedVids from './DisplayedVids.js';
 
 import '../styles/App.css';
 
@@ -10,15 +11,53 @@ class App extends Component {
   state = {
     showNav: false,
     showTray: false,
+    displayedVideos: [],
+    searchQuery: '',
+  };
+
+  componentDidMount() {
+    //Fetch all videos
+    fetch('http://localhost:8000/api/getvid', {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(videos => {
+        console.log(videos);
+        this.setState({videos: videos, displayedVideos: videos});
+      });
+  }
+
+  handleSearchInput = e => {
+    //Search input goes through state
+    this.setState({searchQuery: e.target.value});
+  };
+
+  handleSearch = () => {
+    const match = new RegExp(escapeRegExp(this.state.searchQuery), 'i');
+    const searchResults = this.state.videos.filter(video => {
+      if (match.test(video.title) || match.test(video.tags) === true) {
+        return true;
+      }
+    });
+    console.log(this.state.videos);
+    this.setState({displayedVideos: searchResults});
+  };
+
+  handleSearchKeyUp = e => {
+    if (e.key === 'Enter') {
+      this.handleSearch();
+    }
   };
 
   handleShowTray = () => {
+    //Toggles showing the "tray" on mobile
     !!this.state.showTray
       ? this.setState({showTray: false})
       : this.setState({showTray: true});
   };
 
   handleShowNav = () => {
+    //Toggles showing the playlist menu on mobile
     !!this.state.showNav
       ? this.setState({showNav: false})
       : this.setState({showNav: true});
@@ -36,13 +75,21 @@ class App extends Component {
           <h1 className='b pm0 tc main-title'>Chingu Learning Portal</h1>
           <div className={!!this.state.showTray ? 'tray show-tray' : 'tray'}>
             <i className='fas fa-chevron-left' onClick={this.handleShowTray} />
-            <input
-              type='text'
-              id='search'
-              name='search'
-              aria-label='Search'
-              placeholder='Search videos ...'
-            />
+            <div className='search-box'>
+              <input
+                type='text'
+                id='search'
+                name='search'
+                aria-label='Search'
+                placeholder='Search videos ...'
+                onChange={this.handleSearchInput}
+                onKeyUp={this.handleSearchKeyUp}
+              />
+              <i
+                className='fas fa-search pointer'
+                onClick={this.handleSearch}
+              />
+            </div>
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
             </p>
@@ -61,7 +108,7 @@ class App extends Component {
           </ul>
         </nav>
         <main className='fbc'>
-          <GetVids />
+          <DisplayedVids vids={this.state.displayedVideos} />
         </main>
         <footer>
           <p className='tc pointer'>Admin Login</p>
