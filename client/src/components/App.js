@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     showNav: false,
     showTray: false,
-    displayedVideos: null,
+    displayedVideos: [],
     searchQuery: '',
   };
 
@@ -29,12 +29,11 @@ class App extends Component {
 
   handleSearchInput = e => {
     //Search input goes through state
-    e.preventDefault();
     this.setState({searchQuery: e.target.value});
   };
 
-  handleSearch = query => {
-    const match = new RegExp(escapeRegExp(query), 'i');
+  handleSearch = () => {
+    const match = new RegExp(escapeRegExp(this.state.searchQuery), 'i');
     const searchResults = this.state.videos.filter(video => {
       if (match.test(video.title) || match.test(video.tags) === true) {
         return true;
@@ -42,6 +41,12 @@ class App extends Component {
     });
     console.log(this.state.videos);
     this.setState({displayedVideos: searchResults});
+  };
+
+  handleSearchKeyUp = e => {
+    if (e.key === 'Enter') {
+      this.handleSearch();
+    }
   };
 
   handleShowTray = () => {
@@ -78,12 +83,11 @@ class App extends Component {
                 aria-label='Search'
                 placeholder='Search videos ...'
                 onChange={this.handleSearchInput}
+                onKeyUp={this.handleSearchKeyUp}
               />
               <i
                 className='fas fa-search pointer'
-                onClick={() => {
-                  this.handleSearch(this.state.searchQuery);
-                }}
+                onClick={this.handleSearch}
               />
             </div>
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
