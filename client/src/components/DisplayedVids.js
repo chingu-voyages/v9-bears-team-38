@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useContext} from 'react';
 
 import {VideoContext} from './VideoStore.js';
 import VidTile from './VidTile.js';

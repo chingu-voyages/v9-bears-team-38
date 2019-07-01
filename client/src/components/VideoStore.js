@@ -1,4 +1,5 @@
 import React, {createContext, useReducer, useState, useEffect} from 'react';
+import escapeRegExp from 'escape-string-regexp';
 
 const VideoContext = createContext([{}, () => {}]);
 
@@ -38,7 +39,7 @@ const VideoContextProvider = props => {
       //case to update displayed videos by search query
       case 'search': {
         const match = new RegExp(escapeRegExp(action.searchQuery), 'i');
-        const searchResults = allVideos.filter(video => {
+        const searchResults = state.allVideos.filter(video => {
           if (match.test(video.title) || match.test(video.tags) === true) {
             return true;
           }
