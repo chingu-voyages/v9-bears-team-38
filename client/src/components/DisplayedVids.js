@@ -7,7 +7,7 @@ import SearchError from './SearchError.js';
 import '../styles/DisplayedVids.css';
 
 const DisplayedVids = props => {
-  //Pull in Video Context to consume
+  //Destructure state from Context to get videos from Store
   let {state} = useContext(VideoContext);
 
   return (

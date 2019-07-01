@@ -15,15 +15,15 @@ class App extends Component {
     searchQuery: '',
   };
 
+  //Toggles showing the "tray" on mobile
   handleShowTray = () => {
-    //Toggles showing the "tray" on mobile
     !!this.state.showTray
       ? this.setState({showTray: false})
       : this.setState({showTray: true});
   };
 
+  //Toggles showing the playlist menu on mobile
   handleShowNav = () => {
-    //Toggles showing the playlist menu on mobile
     !!this.state.showNav
       ? this.setState({showNav: false})
       : this.setState({showNav: true});

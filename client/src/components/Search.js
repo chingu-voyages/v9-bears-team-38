@@ -3,10 +3,13 @@ import React, {useEffect, useState, useContext} from 'react';
 import {VideoContext} from './VideoStore.js';
 
 const Search = props => {
+  //State to hold user input from search bar
   const [query, setQuery] = useState('');
 
+  //Destructure dispatch method from VideoContext
   let {dispatch} = useContext(VideoContext);
 
+  //Uses dispatch from reducer in Store to filter displayedVideos
   const handleSearch = () => {
     dispatch({
       type: 'search',
@@ -14,6 +17,7 @@ const Search = props => {
     });
   };
 
+  //Calls handleSearch if user presses enter key
   const handleSearchKeyUp = e => {
     if (e.key === 'Enter') {
       handleSearch();
