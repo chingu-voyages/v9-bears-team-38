@@ -11,28 +11,47 @@ const VideoContextProvider = props => {
     })
       .then(response => response.json())
       .then(videos => {
-        console.log(videos);
         setVids(videos);
+        dispatch({
+          type: 'initialize',
+          payload: videos,
+        });
       });
   }, []);
 
-  let initialState = {
-    allVideos: [vids],
+  const initialState = {
+    allVideos: [],
     displayedVideos: [],
   };
 
   const reducer = (state, action) => {
-    const match = new RegExp(escapeRegExp(action.searchQuery), 'i');
-    const searchResults = allVideos.filter(video => {
-      if (match.test(video.title) || match.test(video.tags) === true) {
-        return true;
+    //Switch to determine action of reducer
+    switch (action.type) {
+      //Case to initialize state with fetched data
+      case 'initialize': {
+        return {
+          ...state,
+          allVideos: action.payload,
+          displayedVideos: action.payload,
+        };
       }
-    });
+      //case to update displayed videos by search query
+      case 'search': {
+        const match = new RegExp(escapeRegExp(action.searchQuery), 'i');
+        const searchResults = allVideos.filter(video => {
+          if (match.test(video.title) || match.test(video.tags) === true) {
+            return true;
+          }
+        });
 
-    return {
-      ...state,
-      displayedVideos: searchResults,
-    };
+        return {
+          ...state,
+          displayedVideos: searchResults,
+        };
+      }
+      default:
+        return state;
+    }
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);

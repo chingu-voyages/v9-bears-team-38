@@ -7,26 +7,15 @@ import SearchError from './SearchError.js';
 import '../styles/DisplayedVids.css';
 
 const DisplayedVids = props => {
-  let vidContext = useContext(VideoContext);
-  const {videos} = vidContext.state.displayedVideos;
-  console.log(vidContext.state.displayedVideos);
-  // const [vids, setVids] = useState(null);
+  //Pull in Video Context to consume
+  let {state} = useContext(VideoContext);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:8000/api/getvid', {
-  //     method: 'GET',
-  //   })
-  //     .then(response => response.json())
-  //     .then(videos => {
-  //       console.log(videos);
-  //       setVids(videos);
-  //     });
-  // }, []);
+  console.log(state.displayedVideos);
 
   return (
     <ul className='pm0 all-vids'>
-      {videos.length > 0 ? (
-        videos.map(vid => {
+      {state.displayedVideos.length > 0 ? (
+        state.displayedVideos.map(vid => {
           return <VidTile vidObj={vid} key={vid.title} />;
         })
       ) : (
