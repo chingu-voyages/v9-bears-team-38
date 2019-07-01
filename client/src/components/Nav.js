@@ -17,6 +17,16 @@ const Nav = ({showNav}) => {
     <nav className={!!showNav ? 'lbgc fbc nav show-nav' : 'lbgc fbc nav'}>
       <h2 className='b playlists'>Playlists</h2>
       <ul>
+        <li
+          className='pointer'
+          onClick={() => {
+            dispatch({
+              type: 'search',
+              searchQuery: '',
+            });
+          }}>
+          All
+        </li>
         {categories.map(cat => {
           return (
             <li
