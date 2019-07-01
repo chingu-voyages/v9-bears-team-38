@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {hot} from 'react-hot-loader/root';
 
 import {VideoContext} from './VideoStore.js';
-import AddVideo from './AddVideo.js';
+import Nav from './Nav.js';
 import Search from './Search.js';
 import DisplayedVids from './DisplayedVids.js';
 
@@ -48,17 +48,7 @@ class App extends Component {
             <p className='tc pointer tp2'>Admin</p>
           </div>
         </header>
-        <nav
-          className={
-            !!this.state.showNav ? 'lbgc fbc nav show-nav' : 'lbgc fbc nav'
-          }>
-          <h2 className='b playlists'>Playlists</h2>
-          <ul>
-            <li className='pointer'>Chingu AMAs</li>
-            <li className='pointer'>Tutorials</li>
-            <li className='pointer'>Voyage 8</li>
-          </ul>
-        </nav>
+        <Nav showNav={this.state.showNav} />
         <main className='fbc'>
           <DisplayedVids vids={this.state.displayedVideos} />
         </main>
