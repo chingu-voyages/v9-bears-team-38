@@ -10,8 +10,6 @@ const DisplayedVids = props => {
   //Pull in Video Context to consume
   let {state} = useContext(VideoContext);
 
-  console.log(state.displayedVideos);
-
   return (
     <ul className='pm0 all-vids'>
       {state.displayedVideos.length > 0 ? (

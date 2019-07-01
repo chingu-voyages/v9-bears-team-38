@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {hot} from 'react-hot-loader/root';
 import escapeRegExp from 'escape-string-regexp';
 
+import {VideoContext} from './VideoStore.js';
 import AddVideo from './AddVideo.js';
 import DisplayedVids from './DisplayedVids.js';
 
@@ -14,18 +15,6 @@ class App extends Component {
     displayedVideos: [],
     searchQuery: '',
   };
-
-  // componentDidMount() {
-  //   //Fetch all videos
-  //   fetch('http://localhost:8000/api/getvid', {
-  //     method: 'GET',
-  //   })
-  //     .then(response => response.json())
-  //     .then(videos => {
-  //       console.log(videos);
-  //       this.setState({videos: videos, displayedVideos: videos});
-  //     });
-  // }
 
   handleSearchInput = e => {
     //Search input goes through state
