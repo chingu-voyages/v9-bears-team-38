@@ -4,6 +4,7 @@ import {hot} from 'react-hot-loader/root';
 import {VideoContext} from './VideoStore.js';
 import Nav from './Nav.js';
 import Search from './Search.js';
+import Login from './Login.js';
 import DisplayedVids from './DisplayedVids.js';
 
 import '../styles/App.css';
@@ -12,6 +13,7 @@ class App extends Component {
   state = {
     showNav: false,
     showTray: false,
+    showLogin: false,
     searchQuery: '',
   };
 
@@ -27,6 +29,13 @@ class App extends Component {
     !!this.state.showNav
       ? this.setState({showNav: false})
       : this.setState({showNav: true});
+  };
+
+  //Toggles showing the Login form
+  handleShowLogin = () => {
+    !!this.state.showLogin
+      ? this.setState({showLogin: false})
+      : this.setState({showLogin: true});
   };
 
   render() {
@@ -45,10 +54,13 @@ class App extends Component {
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
             </p>
-            <p className='tc pointer tp2'>Login</p>
+            <p className='tc pointer tp2' onClick={this.handleShowLogin}>
+              Login
+            </p>
           </div>
         </header>
         <Nav showNav={this.state.showNav} />
+        <Login showLogin={this.state.showLogin} />
         <main className='fbc'>
           <DisplayedVids vids={this.state.displayedVideos} />
         </main>
