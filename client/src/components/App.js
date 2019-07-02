@@ -45,16 +45,14 @@ class App extends Component {
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
             </p>
-            <p className='tc pointer tp2'>Admin</p>
+            <p className='tc pointer tp2'>Login</p>
           </div>
         </header>
         <Nav showNav={this.state.showNav} />
         <main className='fbc'>
           <DisplayedVids vids={this.state.displayedVideos} />
         </main>
-        <footer>
-          <p className='tc pointer'>Admin Login</p>
-        </footer>
+        <footer />
       </div>
     );
   }
