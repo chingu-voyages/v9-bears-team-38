@@ -22,6 +22,7 @@ const VideoContextProvider = props => {
       });
   }, []);
 
+  //Hook to get user from local storage if available and log them in automatically
   useEffect(() => {
     const getUserFromLocalStorage = localStorage.getItem('username');
     if (!!getUserFromLocalStorage) {

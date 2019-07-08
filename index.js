@@ -8,7 +8,6 @@ const path = require('path');
 require('dotenv').config();
 const {DATABASE_URL, PORT} = require('./config');
 const videoRouter = require('./routes/videoRouter.js');
-const userRouter = require('./routes/userRouter.js');
 
 mongoose.Promise = global.Promise;
 const app = express();
@@ -18,7 +17,6 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'client/dist')));
 app.use('/video', videoRouter);
-app.use('/user', userRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
