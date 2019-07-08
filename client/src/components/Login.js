@@ -25,16 +25,15 @@ const Login = ({showLogin}) => {
   };
 
   return (
-    <div>
+    <div
+      id='login-modal'
+      className={!!showLogin ? 'fbc show-login' : 'fbc hide-login'}>
       {!!state.user ? (
         <button id='submit-logout' onClick={handleLogoutUser}>
           Logout
         </button>
       ) : (
-        <form
-          id='login-form'
-          className={!!showLogin ? 'fbc show-login' : 'fbc hide-login'}
-          onSubmit={handleLoginUser}>
+        <form id='login-form' onSubmit={handleLoginUser}>
           <div>
             <label htmlFor='title'>Username:</label>
             <input
