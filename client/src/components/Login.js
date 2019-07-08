@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 
 import {VideoContext} from './VideoStore.js';
 
-const Login = ({showLogin}) => {
+const Login = ({showLogin, handleShowLogin}) => {
   const {state, dispatch} = useContext(VideoContext);
 
   const [username, setUsername] = useState('ChinguAdmin');
@@ -10,6 +10,7 @@ const Login = ({showLogin}) => {
 
   const handleLoginUser = e => {
     e.preventDefault();
+    handleShowLogin();
     let user = [username, pass];
     dispatch({
       type: 'verifyUser',
@@ -19,6 +20,7 @@ const Login = ({showLogin}) => {
 
   const handleLogoutUser = e => {
     e.preventDefault();
+    handleShowLogin();
     dispatch({
       type: 'clearUser',
     });
@@ -28,12 +30,15 @@ const Login = ({showLogin}) => {
     <div
       id='login-modal'
       className={!!showLogin ? 'fbc show-login' : 'fbc hide-login'}>
+      <button id='close-login' onClick={handleShowLogin}>
+        close
+      </button>
       {!!state.user ? (
         <button id='submit-logout' onClick={handleLogoutUser}>
           Logout
         </button>
       ) : (
-        <form id='login-form' onSubmit={handleLoginUser}>
+        <form id='login-form' className='fbc' onSubmit={handleLoginUser}>
           <div>
             <label htmlFor='title'>Username:</label>
             <input

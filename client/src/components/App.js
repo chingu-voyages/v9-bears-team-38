@@ -66,7 +66,10 @@ class App extends Component {
           </div>
         </header>
         <Nav showNav={this.state.showNav} />
-        <Login showLogin={this.state.showLogin} />
+        <Login
+          showLogin={this.state.showLogin}
+          handleShowLogin={this.handleShowLogin}
+        />
         <main className='fbc'>
           <DisplayedVids vids={this.state.displayedVideos} />
         </main>

@@ -212,6 +212,7 @@ li {
 }
 
 #login-modal {
+  grid-column: c1 / c3;
   position: absolute;
   top: 100px;
   left: 0;
@@ -220,6 +221,16 @@ li {
   background-color: var(--color-ltheme);
   overflow: hidden;
   transition-duration: 200ms;
+}
+
+button {
+  background-color: var(--color-lgray);
+}
+
+#close-login {
+  position: absolute;
+  top: 15px;
+  right: 20px;
 }
 
 #login-form > div > input {
@@ -343,6 +354,11 @@ footer {
     grid-row: r2 / r3;
     width: 100%;
     height: calc(100vh - 120px);
+  }
+
+  #login-modal {
+    grid-column: c2 / c3;
+    border-left: 1px solid #000;
   }
 
   main {
