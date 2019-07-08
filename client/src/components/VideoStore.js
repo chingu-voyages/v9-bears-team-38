@@ -9,7 +9,7 @@ const VideoContextProvider = props => {
 
   //Hook to fetch videos from DB and place them in state through dispatch method from below reducer
   useEffect(() => {
-    fetch('http://localhost:8000/api/getvid', {
+    fetch('http://localhost:8000/video/getvid', {
       method: 'GET',
     })
       .then(response => response.json())
@@ -24,9 +24,11 @@ const VideoContextProvider = props => {
 
   //Initial state to be fed to reducer, replaced by fetch above when promise resolves
   const initialState = {
+    user: null,
     allVideos: [],
     displayedVideos: [],
   };
+  const u = ['ChinguAdmin', 'ChinguCohortCollective'];
 
   //Reducer used to pull in state and update it with action fed to dispatch method
   const reducer = (state, action) => {
@@ -52,6 +54,25 @@ const VideoContextProvider = props => {
         return {
           ...state,
           displayedVideos: searchResults,
+        };
+      }
+      case 'setUser': {
+        console.log(action.payload);
+        if (action.payload[0] == u[0] && action.payload[1] == u[1]) {
+          localStorage.setItem('username', action.payload[0]);
+          return {
+            ...state,
+            user: action.payload[0],
+          };
+        } else {
+          return alert('Incorrect Credentials');
+        }
+      }
+      case 'clearUser': {
+        localStorage.removeItem('username');
+        return {
+          ...state,
+          user: null,
         };
       }
       default:

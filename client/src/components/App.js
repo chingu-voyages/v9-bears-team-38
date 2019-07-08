@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import {hot} from 'react-hot-loader/root';
 
 import {VideoContext} from './VideoStore.js';
@@ -54,9 +54,15 @@ class App extends Component {
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
             </p>
-            <p className='tc pointer tp2' onClick={this.handleShowLogin}>
-              Login
-            </p>
+            {!!this.context.user ? (
+              <p className='tc pointer tp2' onClick={this.handleShowLogin}>
+                Logout
+              </p>
+            ) : (
+              <p className='tc pointer tp2' onClick={this.handleShowLogin}>
+                Login
+              </p>
+            )}
           </div>
         </header>
         <Nav showNav={this.state.showNav} />
@@ -70,4 +76,5 @@ class App extends Component {
   }
 }
 
+App.contextType = VideoContext;
 export default hot(App);

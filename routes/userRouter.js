@@ -7,19 +7,18 @@ mongoose.Promise = global.Promise;
 const {User} = require('../models/userModel');
 
 router.post('/login', (req, res) => {
-  const username = req.body.username;
+  const name = req.body.name;
   const password = req.body.password;
-  console.log(req.body);
-  User.findOne({username}).then(user => {
+  User.findOne({name}).then(user => {
     if (!user) {
-      return res.status(404).json({noUser: 'User Not Found'});
+      return res.status(404).json({noUser: `${name} Not Found`});
     } else if (password === user.password) {
       return res.json({
         success: true,
         name: user.username,
       });
     } else if (password != user.password) {
-      return res.status(1000).json({noMatch: 'Password Incorrect'});
+      return res.status(400).json({noMatch: 'Password Incorrect'});
     }
   });
 });

@@ -7,7 +7,6 @@ mongoose.Promise = global.Promise;
 const {Video} = require('../models/videoModel');
 
 router.get('/getvid', (req, res) => {
-  console.log(req.body);
   Video.find()
     .then(videos => {
       res.json(videos);
