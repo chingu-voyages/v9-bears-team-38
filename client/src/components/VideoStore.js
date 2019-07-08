@@ -22,6 +22,16 @@ const VideoContextProvider = props => {
       });
   }, []);
 
+  useEffect(() => {
+    const getUserFromLocalStorage = localStorage.getItem('username');
+    if (!!getUserFromLocalStorage) {
+      dispatch({
+        type: 'setUser',
+        payload: getUserFromLocalStorage,
+      });
+    }
+  }, []);
+
   //Initial state to be fed to reducer, replaced by fetch above when promise resolves
   const initialState = {
     user: null,
@@ -56,8 +66,8 @@ const VideoContextProvider = props => {
           displayedVideos: searchResults,
         };
       }
-      case 'setUser': {
-        console.log(action.payload);
+      //Case to Verify the User
+      case 'verifyUser': {
         if (action.payload[0] == u[0] && action.payload[1] == u[1]) {
           localStorage.setItem('username', action.payload[0]);
           return {
@@ -68,6 +78,14 @@ const VideoContextProvider = props => {
           return alert('Incorrect Credentials');
         }
       }
+      //Case to Set the User
+      case 'setUser': {
+        return {
+          ...state,
+          user: action.payload,
+        };
+      }
+      //Case to Clear the User
       case 'clearUser': {
         localStorage.removeItem('username');
         return {

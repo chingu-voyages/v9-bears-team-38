@@ -54,9 +54,9 @@ class App extends Component {
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
             </p>
-            {!!this.context.user ? (
+            {!!this.context.state.user ? (
               <p className='tc pointer tp2' onClick={this.handleShowLogin}>
-                Logout
+                {this.context.state.user}
               </p>
             ) : (
               <p className='tc pointer tp2' onClick={this.handleShowLogin}>
