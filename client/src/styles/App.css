@@ -211,6 +211,47 @@ li {
   margin: 0 0 0.5em -2em;
 }
 
+#login-modal {
+  grid-column: c1 / c3;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  color: #000;
+  background-color: var(--color-ltheme);
+  overflow: hidden;
+  transition-duration: 200ms;
+}
+
+button {
+  background-color: var(--color-lgray);
+}
+
+#close-login {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+#login-form > div > input {
+  margin: 0.5em 1em;
+}
+
+#submit-login {
+  padding: 0.2em 0.5em;
+  margin: auto;
+  font-family: var(--font);
+  background-color: #fff;
+}
+
+.hide-login {
+  height: 0;
+}
+
+.show-login {
+  height: 100px;
+}
+
 main {
   grid-column: c1 / c2;
   grid-row: r2 / r3;
@@ -313,6 +354,11 @@ footer {
     grid-row: r2 / r3;
     width: 100%;
     height: calc(100vh - 120px);
+  }
+
+  #login-modal {
+    grid-column: c2 / c3;
+    border-left: 1px solid #000;
   }
 
   main {

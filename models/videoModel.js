@@ -10,18 +10,5 @@ const videoSchema = mongoose.Schema({
   starring: {type: String},
 });
 
-// videoSchema.methods.serialize = function() {
-//   return {
-//     id: this._id,
-//     title: this.title,
-//     url: this.url,
-//     udaterl: this.date,
-//     category: this.category,
-//     description: this.description,
-//     tags: this.tags,
-//     starring: this.starring,
-//   };
-// };
-
 const Video = mongoose.model('Video', videoSchema);
 module.exports = {Video};

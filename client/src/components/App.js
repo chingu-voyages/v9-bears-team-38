@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import {hot} from 'react-hot-loader/root';
 
 import {VideoContext} from './VideoStore.js';
 import Nav from './Nav.js';
 import Search from './Search.js';
+import Login from './Login.js';
 import DisplayedVids from './DisplayedVids.js';
 
 import '../styles/App.css';
@@ -12,6 +13,7 @@ class App extends Component {
   state = {
     showNav: false,
     showTray: false,
+    showLogin: false,
     searchQuery: '',
   };
 
@@ -27,6 +29,13 @@ class App extends Component {
     !!this.state.showNav
       ? this.setState({showNav: false})
       : this.setState({showNav: true});
+  };
+
+  //Toggles showing the Login form
+  handleShowLogin = () => {
+    !!this.state.showLogin
+      ? this.setState({showLogin: false})
+      : this.setState({showLogin: true});
   };
 
   render() {
@@ -45,19 +54,30 @@ class App extends Component {
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
             </p>
-            <p className='tc pointer tp2'>Admin</p>
+            {!!this.context.state.user ? (
+              <p className='tc pointer tp2' onClick={this.handleShowLogin}>
+                {this.context.state.user}
+              </p>
+            ) : (
+              <p className='tc pointer tp2' onClick={this.handleShowLogin}>
+                Login
+              </p>
+            )}
           </div>
         </header>
         <Nav showNav={this.state.showNav} />
+        <Login
+          showLogin={this.state.showLogin}
+          handleShowLogin={this.handleShowLogin}
+        />
         <main className='fbc'>
           <DisplayedVids vids={this.state.displayedVideos} />
         </main>
-        <footer>
-          <p className='tc pointer'>Admin Login</p>
-        </footer>
+        <footer />
       </div>
     );
   }
 }
 
+App.contextType = VideoContext;
 export default hot(App);
