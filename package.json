@@ -1,0 +1,63 @@
+{
+  "name": "bears-38",
+  "version": "1.0.0",
+  "description": "Chingu V9 Bears 38",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "start": "node index.js",
+    "server": " nodemon index.js",
+    "dev": "run-p server client",
+    "client": "cd ./client && npm start"
+  },
+  "author": "Eric Zumwalt and Nick Haynes",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyages/v9-bears-team-38.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@testing-library/react": "^8.0.1",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "cors": "^2.8.5",
+    "css-loader": "^2.1.1",
+    "eslint": "^5.16.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.3.0",
+    "jest": "^24.8.0",
+    "jest-axe": "^3.1.1",
+    "jest-dom": "^3.4.0",
+    "jest-watch-typeahead": "^0.3.1",
+    "lint-staged": "^8.1.7",
+    "nodemon": "^1.18.11",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "body-parser": "^1.19.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-pino-logger": "^4.0.0",
+    "mongoose": "^5.5.4",
+    "node-env-run": "^3.0.2"
+  },
+  "engines": {
+    "node": "10.15.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

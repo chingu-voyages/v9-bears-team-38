@@ -1,0 +1,12 @@
+@import './App.css';
+
+.add-video-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+input {
+  width: 250px;
+  padding: 0.5em 0;
+  margin: 1em 0;
+}

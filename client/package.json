@@ -1,0 +1,50 @@
+{
+  "name": "ReactBoilerplate",
+  "version": "1.0.0",
+  "description": "boilerplate for react",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
+    "test:watch": "jest --watch",
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+  "author": "Eric Zumwalt <zumdewald@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@hot-loader/react-dom": "^16.8.6",
+    "@testing-library/react": "^8.0.1",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^2.1.1",
+    "escape-string-regexp": "^2.0.0",
+    "eslint": "^5.16.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^2.3.0",
+    "jest": "^24.8.0",
+    "jest-axe": "^3.1.1",
+    "jest-dom": "^3.4.0",
+    "jest-watch-typeahead": "^0.3.1",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "react-hot-loader": "^4.11.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
