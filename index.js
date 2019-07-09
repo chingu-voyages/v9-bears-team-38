@@ -7,7 +7,7 @@ const path = require('path');
 
 require('dotenv').config();
 const {DATABASE_URL, PORT} = require('./config');
-const videoRouter = require('./routers/videoRouter');
+const videoRouter = require('./routes/videoRouter.js');
 
 mongoose.Promise = global.Promise;
 const app = express();
@@ -16,7 +16,7 @@ app.use(pino);
 app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'client/dist')));
-app.use('/api', videoRouter);
+app.use('/video', videoRouter);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
