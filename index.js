@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 require('dotenv').config();
-const {DATABASE_URL, PORT} = require('./config.js');
+const {DATABASE_URL} = require('./config.js');
 const videoRouter = require('./routes/videoRouter.js');
 
 mongoose.Promise = global.Promise;
@@ -23,6 +23,7 @@ app.get('*', (req, res) => {
 });
 
 let server;
+const PORT = process.env.PORT || 8000;
 
 function runServer(databaseUrl, port = PORT) {
   return new Promise((resolve, reject) => {
