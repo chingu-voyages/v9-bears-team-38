@@ -24,7 +24,7 @@ const AddVideo = () => {
       tags: _tags,
       starring: _starring,
     };
-    fetch('http://localhost:8000/video/addvid', {
+    fetch('/api/addvid', {
       method: 'POST',
       body: JSON.stringify(postBody),
       headers: {'Content-Type': 'application/json'},
@@ -34,7 +34,7 @@ const AddVideo = () => {
   // Get videos
   const getVideos = e => {
     e.preventDefault();
-    fetch('http://localhost:8000/video/getvid', {
+    fetch('/api/getvid', {
       method: 'GET',
     }).then(response => console.log(response));
   };

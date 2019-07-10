@@ -88,10 +88,13 @@
         s = e => {
           const [t, n] = Object(a.useState)([]);
           Object(a.useEffect)(() => {
-            fetch('http://localhost:8000/video/getvid', {method: 'GET'})
+            fetch('/api/getvid', {method: 'GET'})
               .then(e => e.json())
               .then(e => {
                 n(e), u({type: 'initialize', payload: e});
+              })
+              .catch(e => {
+                console.error(e);
               });
           }, []),
             Object(a.useEffect)(() => {
@@ -966,8 +969,8 @@ object-assign
             };
       const u = ({showLogin: e, handleShowLogin: t}) => {
         const {state: n, dispatch: r} = Object(a.useContext)(l.a),
-          [i, u] = Object(a.useState)('ChinguAdmin'),
-          [c, s] = Object(a.useState)('ChinguCohortCollective');
+          [i, u] = Object(a.useState)(''),
+          [c, s] = Object(a.useState)('');
         return o.a.createElement(
           'div',
           {
@@ -1029,7 +1032,7 @@ object-assign
       };
       i(
         u,
-        "useContext{{state, dispatch}}\nuseState{[username, setUsername]('ChinguAdmin')}\nuseState{[pass, setPass]('ChinguCohortCollective')}",
+        "useContext{{state, dispatch}}\nuseState{[username, setUsername]('')}\nuseState{[pass, setPass]('')}",
       );
       const c = u;
       var s, f;

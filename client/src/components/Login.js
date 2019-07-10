@@ -5,8 +5,8 @@ import {VideoContext} from './VideoStore.js';
 const Login = ({showLogin, handleShowLogin}) => {
   const {state, dispatch} = useContext(VideoContext);
 
-  const [username, setUsername] = useState('ChinguAdmin');
-  const [pass, setPass] = useState('ChinguCohortCollective');
+  const [username, setUsername] = useState('');
+  const [pass, setPass] = useState('');
 
   const handleLoginUser = e => {
     e.preventDefault();
