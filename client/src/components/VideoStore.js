@@ -9,7 +9,7 @@ const VideoContextProvider = props => {
 
   //Hook to fetch videos from DB and place them in state through dispatch method from below reducer
   useEffect(() => {
-    fetch('http://localhost:8000/video/getvid', {
+    fetch('/api/getvid', {
       method: 'GET',
     })
       .then(response => response.json())
@@ -19,6 +19,9 @@ const VideoContextProvider = props => {
           type: 'initialize',
           payload: videos,
         });
+      })
+      .catch(err => {
+        console.error(err);
       });
   }, []);
 
