@@ -6,6 +6,7 @@ import Nav from './Nav.js';
 import Search from './Search.js';
 import Login from './Login.js';
 import DisplayedVids from './DisplayedVids.js';
+import Admin from './Admin.js';
 
 import '../styles/App.css';
 
@@ -14,6 +15,7 @@ class App extends Component {
     showNav: false,
     showTray: false,
     showLogin: false,
+    showAdmin: true,
     searchQuery: '',
   };
 
@@ -38,6 +40,13 @@ class App extends Component {
       : this.setState({showLogin: true});
   };
 
+  //Toggles showing the Login form
+  handleShowAdmin = () => {
+    !!this.state.showAdmin
+      ? this.setState({showLogin: false})
+      : this.setState({showLogin: true});
+  };
+
   render() {
     return (
       <div id='app-container' className='pm0' title='app-container'>
@@ -56,7 +65,7 @@ class App extends Component {
             </p>
             {!!this.context.state.user ? (
               <p className='tc pointer tp2' onClick={this.handleShowLogin}>
-                {this.context.state.user}
+                Admin
               </p>
             ) : (
               <p className='tc pointer tp2' onClick={this.handleShowLogin}>
@@ -70,6 +79,7 @@ class App extends Component {
           showLogin={this.state.showLogin}
           handleShowLogin={this.handleShowLogin}
         />
+        {!!this.state.showAdmin && <Admin />}
         <main className='fbc'>
           <DisplayedVids vids={this.state.displayedVideos} />
         </main>

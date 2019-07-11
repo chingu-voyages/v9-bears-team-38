@@ -1,0 +1,17 @@
+@import './App.css';
+
+.admin-container {
+  grid-column: c2 / c3;
+  grid-row: r2 / r3;
+  width: 100%;
+  min-height: calc(100vh - 150px);
+  background-color: var(--color-lgray);
+  overflow: scroll;
+  z-index: 5;
+}
+
+input {
+  width: 250px;
+  padding: 0.5em 0;
+  margin: 1em 0;
+}

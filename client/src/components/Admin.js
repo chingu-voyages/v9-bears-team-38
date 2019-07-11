@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-import '../styles/AddVideo.css';
+import '../styles/Admin.css';
 
-const AddVideo = () => {
+const Admin = () => {
   //Local state for controlled htmlForm
   const [_title, setTitle] = useState('');
   const [_url, setUrl] = useState('');
@@ -31,16 +31,8 @@ const AddVideo = () => {
     }).then(response => console.log(response));
   };
 
-  // Get videos
-  const getVideos = e => {
-    e.preventDefault();
-    fetch('/api/getvid', {
-      method: 'GET',
-    }).then(response => console.log(response));
-  };
-
   return (
-    <div className='add-video-container fbc'>
+    <div className='admin-container fbc'>
       <form id='add-vid-form' className='fbc' onSubmit={addVideo}>
         <label htmlFor='title'>Title:</label>
         <input
@@ -111,9 +103,8 @@ const AddVideo = () => {
           value='Submit Video'
         />
       </form>
-      <button onClick={getVideos}>Get Videos</button>
     </div>
   );
 };
 
-export default AddVideo;
+export default Admin;
