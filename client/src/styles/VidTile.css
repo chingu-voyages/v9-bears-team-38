@@ -5,7 +5,7 @@ p {
 }
 
 .vid-tile {
-  width: 100%;
+  width: calc(100% / 3);
   margin: 2em auto;
 }
 
@@ -56,6 +56,7 @@ p {
   padding-left: 0.5em;
   margin: 0 auto;
   font-style: italic;
+  text-indent: 0em;
 }
 
 .vid-tags {
@@ -64,4 +65,10 @@ p {
   width: 100%;
   padding-left: 0.5em;
   margin: auto;
+}
+
+.vid-tile:not(:first-of-type) .tile-icon,
+.vid-tile:not(:first-of-type) .vid-desc,
+.vid-tile:not(:first-of-type) .vid-tags {
+  display: none;
 }
