@@ -43,8 +43,8 @@ class App extends Component {
   //Toggles showing the Login form
   handleShowAdmin = () => {
     !!this.state.showAdmin
-      ? this.setState({showLogin: false})
-      : this.setState({showLogin: true});
+      ? this.setState({showAdmin: false})
+      : this.setState({showAdmin: true});
   };
 
   render() {
@@ -64,7 +64,7 @@ class App extends Component {
               Playlists
             </p>
             {!!this.context.state.user ? (
-              <p className='tc pointer tp2' onClick={this.handleShowLogin}>
+              <p className='tc pointer tp2' onClick={this.handleShowAdmin}>
                 Admin
               </p>
             ) : (
@@ -79,7 +79,9 @@ class App extends Component {
           showLogin={this.state.showLogin}
           handleShowLogin={this.handleShowLogin}
         />
-        {!!this.state.showAdmin && <Admin />}
+        {!!this.state.showAdmin && (
+          <Admin handleShowAdmin={this.handleShowAdmin} />
+        )}
         <main className='fbc'>
           <DisplayedVids vids={this.state.displayedVideos} />
         </main>

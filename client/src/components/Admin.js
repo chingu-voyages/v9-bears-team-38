@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import '../styles/Admin.css';
 
-const Admin = () => {
+const Admin = ({handleShowAdmin}) => {
   //Local state for controlled htmlForm
   const [_title, setTitle] = useState('');
   const [_url, setUrl] = useState('');
@@ -33,6 +33,9 @@ const Admin = () => {
 
   return (
     <div className='admin-container fbc'>
+      <button id='close-login' onClick={handleShowAdmin}>
+        close
+      </button>
       <form id='add-vid-form' className='fbc' onSubmit={addVideo}>
         <label htmlFor='title'>Title:</label>
         <input

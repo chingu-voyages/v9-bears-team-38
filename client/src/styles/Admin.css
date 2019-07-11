@@ -1,6 +1,7 @@
 @import './App.css';
 
 .admin-container {
+  position: relative;
   grid-column: c2 / c3;
   grid-row: r2 / r3;
   width: 100%;
