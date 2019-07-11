@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+
+import {VideoContext} from './VideoStore.js';
 
 import '../styles/Admin.css';
 
 const Admin = ({handleShowAdmin}) => {
+  const {state, dispatch} = useContext(VideoContext);
+
   //Local state for controlled htmlForm
   const [_title, setTitle] = useState('');
   const [_url, setUrl] = useState('');
@@ -31,11 +35,20 @@ const Admin = ({handleShowAdmin}) => {
     }).then(response => console.log(response));
   };
 
+  const handleLogoutUser = e => {
+    e.preventDefault();
+    handleShowAdmin();
+    dispatch({
+      type: 'clearUser',
+    });
+  };
+
   return (
     <div className='admin-container fbc'>
-      <button id='close-login' onClick={handleShowAdmin}>
-        close
-      </button>
+      <aside id='close-login' className='fbr'>
+        <button onClick={handleShowAdmin}>close</button>
+        <button onClick={handleLogoutUser}>Logout</button>
+      </aside>
       <form id='add-vid-form' className='fbc' onSubmit={addVideo}>
         <label htmlFor='title'>Title:</label>
         <input

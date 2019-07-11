@@ -16,3 +16,7 @@ input {
   padding: 0.5em 0;
   margin: 1em 0;
 }
+
+#close-login > button {
+  margin-left: 1em;
+}
