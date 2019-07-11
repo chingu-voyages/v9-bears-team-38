@@ -63,8 +63,12 @@ const Admin = ({handleShowAdmin}) => {
   return (
     <div className='admin-container fbc'>
       <aside id='close-login' className='fbr'>
-        <button onClick={handleShowAdmin}>close</button>
-        <button onClick={handleLogoutUser}>Logout</button>
+        <button onClick={handleShowAdmin} className='lbgc'>
+          close
+        </button>
+        <button onClick={handleLogoutUser} className='lbgc'>
+          Logout
+        </button>
       </aside>
       <form id='add-vid-form' className='fbc' onSubmit={addVideo}>
         <label htmlFor='title'>Title:</label>
@@ -99,14 +103,22 @@ const Admin = ({handleShowAdmin}) => {
         />
         <label htmlFor='category'>Category:</label>
         <input
-          maxLength='20'
-          type='text'
+          list='categories'
           id='category'
           value={_category}
           onChange={e => setCategory(e.target.value)}
-          placeholder='AMA, Tutorial, Voyage 9, etc'
+          placeholder='AMA, Tutorial, etc'
           required
         />
+        <datalist id='categories'>
+          <option value='AMA' />
+          <option valuse='Tutorial' />
+          <option value='Project' />
+          <option value='Meet The Dev' />
+          <option value='Visualization' />
+          <option value='Showcase' />
+          <option value='Other' />
+        </datalist>
         <label htmlFor='description'>Description:</label>
         <input
           maxLength='100'
@@ -139,7 +151,7 @@ const Admin = ({handleShowAdmin}) => {
         <input
           type='submit'
           id='vid-submit'
-          className='heading-text submit-button'
+          className='heading-text submit-button lbgc'
           value='Submit Video'
         />
       </form>

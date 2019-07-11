@@ -2,7 +2,7 @@
 
 .admin-container {
   position: relative;
-  grid-column: c2 / c3;
+  grid-column: c1 / c2;
   grid-row: r2 / r3;
   width: 100%;
   min-height: calc(100vh - 150px);
@@ -10,6 +10,16 @@
   background-color: var(--color-lgray);
   overflow: scroll;
   z-index: 5;
+}
+
+#add-vid-form {
+  position: absolute;
+  top: 70px;
+  margin: 0.5em auto;
+}
+
+label {
+  margin: 0.8em auto 0 0;
 }
 
 input {
@@ -20,4 +30,10 @@ input {
 
 #close-login > button {
   margin-left: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .admin-container {
+    grid-column: c2 / c3;
+  }
 }

@@ -83,7 +83,9 @@ class App extends Component {
           <Admin handleShowAdmin={this.handleShowAdmin} />
         )}
         <main className='fbc'>
-          <DisplayedVids vids={this.state.displayedVideos} />
+          {!this.state.showAdmin && (
+            <DisplayedVids vids={this.state.displayedVideos} />
+          )}
         </main>
         <footer />
       </div>
