@@ -16,7 +16,7 @@ const VideoIcon = ({category}) => {
       switchOutput = 'fas fa-flag-checkered';
       break;
     case 'Meet The Dev':
-      switchOutput = 'fas fa-address-card';
+      switchOutput = 'far fa-handshake';
       break;
     case 'Visualization':
       switchOutput = 'fas fa-project-diagram';
