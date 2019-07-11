@@ -12,15 +12,20 @@ const DisplayedVids = props => {
   let {state} = useContext(VideoContext);
 
   return (
-    <ul className='pm0 all-vids'>
-      {state.displayedVideos.length > 0 ? (
-        state.displayedVideos.map(vid => {
-          return <VidTile vidObj={vid} key={vid.title} />;
-        })
-      ) : (
-        <SearchError />
+    <section>
+      {state.displayedVideos.length > 0 && (
+        <VidTile vidObj={state.displayedVideos[0]} key='MAINVID' />
       )}
-    </ul>
+      <ul className='pm0 all-vids'>
+        {state.displayedVideos.length > 0 ? (
+          state.displayedVideos.map(vid => {
+            return <VidTile vidObj={vid} key={vid.title} />;
+          })
+        ) : (
+          <SearchError />
+        )}
+      </ul>
+    </section>
   );
 };
 
