@@ -6,6 +6,7 @@
   grid-row: r2 / r3;
   width: 100%;
   min-height: calc(100vh - 150px);
+  max-height: 100vh;
   background-color: var(--color-lgray);
   overflow: scroll;
   z-index: 5;

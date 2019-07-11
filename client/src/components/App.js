@@ -15,7 +15,7 @@ class App extends Component {
     showNav: false,
     showTray: false,
     showLogin: false,
-    showAdmin: true,
+    showAdmin: false,
     searchQuery: '',
   };
 

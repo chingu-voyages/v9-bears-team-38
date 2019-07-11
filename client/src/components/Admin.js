@@ -32,7 +32,14 @@ const Admin = ({handleShowAdmin}) => {
       method: 'POST',
       body: JSON.stringify(postBody),
       headers: {'Content-Type': 'application/json'},
-    }).then(response => console.log(response));
+    }).then(response => {
+      if (response.status === 200) {
+        alert('Video was successfully added to database');
+      } else {
+        alert('There was an issue adding this video, please try again');
+      }
+    });
+    resetForm();
   };
 
   const handleLogoutUser = e => {
@@ -41,6 +48,16 @@ const Admin = ({handleShowAdmin}) => {
     dispatch({
       type: 'clearUser',
     });
+  };
+
+  const resetForm = () => {
+    setTitle('');
+    setUrl('');
+    setDate('');
+    setCategory('');
+    setDescription('');
+    setTags('');
+    setStarring('');
   };
 
   return (
@@ -52,6 +69,7 @@ const Admin = ({handleShowAdmin}) => {
       <form id='add-vid-form' className='fbc' onSubmit={addVideo}>
         <label htmlFor='title'>Title:</label>
         <input
+          maxLength='40'
           type='text'
           id='title'
           value={_title}
@@ -61,24 +79,27 @@ const Admin = ({handleShowAdmin}) => {
         />
         <label htmlFor='url'>URL:</label>
         <input
+          maxLength='40'
           type='text'
           id='url'
           value={_url}
           onChange={e => setUrl(e.target.value)}
-          placeholder='URL Where The Video Lives'
+          placeholder='EMBED URL - https://youtube.com/embed/...'
           required
         />
         <label htmlFor='date'>Date:</label>
         <input
+          maxLength='12'
           type='text'
           id='date'
           value={_date}
           onChange={e => setDate(e.target.value)}
-          placeholder='Date Video Was Released'
+          placeholder='e.g. 06/12/2019'
           required
         />
         <label htmlFor='category'>Category:</label>
         <input
+          maxLength='20'
           type='text'
           id='category'
           value={_category}
@@ -88,15 +109,17 @@ const Admin = ({handleShowAdmin}) => {
         />
         <label htmlFor='description'>Description:</label>
         <input
+          maxLength='100'
           type='test'
           id='description'
           value={_description}
           onChange={e => setDescription(e.target.value)}
-          placeholder='This video is about...'
+          placeholder='100 characters or less for description'
           required
         />
         <label htmlFor='tags'>Tags:</label>
         <input
+          maxLength='30'
           type='text'
           id='tags'
           value={_tags}
@@ -106,6 +129,7 @@ const Admin = ({handleShowAdmin}) => {
         />
         <label htmlFor='starring'>Starring:</label>
         <input
+          maxLength='25'
           type='text'
           id='starring'
           value={_starring}
