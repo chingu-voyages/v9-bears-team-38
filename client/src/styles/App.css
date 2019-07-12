@@ -212,12 +212,12 @@ a:active {
   font-variant: small-caps;
 }
 
-ul {
+.nav > ul {
   color: #000;
   list-style-type: none;
 }
 
-li {
+.nav > ul > li {
   padding: 0;
   margin: 0 0 0.5em -2em;
 }
@@ -375,14 +375,6 @@ footer {
   main {
     grid-column: c2 / c3;
     grid-row: r2 / r3;
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .all-vids .fbc:first-of-type {
-    flex-flow: row nowrap;
-    width: calc(100% - 64px);
-    padding: 0 32px;
   }
 }
 

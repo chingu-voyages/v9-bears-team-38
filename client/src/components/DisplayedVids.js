@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 
 import {VideoContext} from './VideoStore.js';
 import VidTile from './VidTile.js';
+import VidThumb from './VidThumb.js';
 // import VidTileSmall from './VidTileSmall.js';
 import SearchError from './SearchError.js';
 
@@ -19,7 +20,7 @@ const DisplayedVids = props => {
       <ul className='pm0 all-vids'>
         {state.displayedVideos.length > 0 ? (
           state.displayedVideos.map(vid => {
-            return <VidTile vidObj={vid} key={vid.title} />;
+            return <VidThumb vidObj={vid} key={vid.title} />;
           })
         ) : (
           <SearchError />

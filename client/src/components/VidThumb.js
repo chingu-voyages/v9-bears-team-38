@@ -4,9 +4,9 @@ import VideoIcon from './VideoIcon.js';
 
 import '../styles/VidTile.css';
 
-const VidTile = ({vidObj}) => {
+const VidThumb = ({vidObj}) => {
   return (
-    <section className='fbc vid-tile'>
+    <li className='fbc vid-thumb'>
       <iframe
         src={vidObj.url + '?showinfo=0'}
         className='vid-src'
@@ -15,13 +15,10 @@ const VidTile = ({vidObj}) => {
         allowFullScreen
       />
       <div className='vid-info'>
-        <h3 className='vid-title'>{vidObj.title}</h3>
-        <p className='vid-desc'>{vidObj.description}</p>
         <VideoIcon category={vidObj.category} />
-        <span className='pm0 vid-tags'>Tags: {vidObj.tags}</span>
       </div>
-    </section>
+    </li>
   );
 };
 
-export default VidTile;
+export default VidThumb;
