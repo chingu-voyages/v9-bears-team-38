@@ -19,6 +19,11 @@
   color: #000;
 }
 
+.current-displayed {
+  padding: 1em 0 0 1em;
+  border-top: 1px dashed var(--color-dblue);
+}
+
 /* Search Error */
 .search-error {
   grid-column: c1 / c2;
