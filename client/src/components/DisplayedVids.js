@@ -26,6 +26,9 @@ const DisplayedVids = props => {
           key='MAINVID'
         />
       )}
+      <h3 className='current-displayed'>
+        {state.filter === '' ? 'All' : state.filter} Videos
+      </h3>
       <ul className='fbr pm0 thumbs'>
         {state.displayedVideos.length > 0 ? (
           state.displayedVideos.map((vid, i) => {
