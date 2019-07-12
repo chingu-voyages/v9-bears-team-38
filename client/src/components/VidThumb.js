@@ -5,6 +5,7 @@ import VideoIcon from './VideoIcon.js';
 import '../styles/VidTile.css';
 
 const VidThumb = ({vidObj, setMainVid, pos}) => {
+  let subStringTitle = `${vidObj.title.substring(0, 25)} ...`;
   return (
     <li className='vid-thumb'>
       <span
@@ -21,6 +22,7 @@ const VidThumb = ({vidObj, setMainVid, pos}) => {
         allowFullScreen
       />
       <VideoIcon classname='thumb-icon' category={vidObj.category} />
+      <h5 className='thumb-title'>{subStringTitle}</h5>
     </li>
   );
 };
