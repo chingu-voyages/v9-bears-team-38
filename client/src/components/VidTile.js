@@ -8,7 +8,7 @@ const VidTile = ({vidObj}) => {
   return (
     <section className='vid-tile'>
       <h3 className='vid-title'>{vidObj.title}</h3>
-      <div className='fbr vid-info-container'>
+      <div className='fbc vid-info-container'>
         <iframe
           src={vidObj.url + '?showinfo=0'}
           className='main-src'

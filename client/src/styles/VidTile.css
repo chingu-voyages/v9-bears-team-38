@@ -11,13 +11,9 @@ p {
   margin: 2em auto;
 }
 
-.vid-info-container {
-  height: 300px;
-}
-
 .main-src {
-  width: 450px;
-  height: 253px;
+  width: 300px;
+  height: 169px;
   margin: 2.5em 1em;
 }
 
@@ -36,7 +32,7 @@ p {
   position: relative;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
+  width: 80%;
   max-width: 400px;
   height: 260px;
 }
@@ -44,7 +40,7 @@ p {
 .vid-title {
   max-width: 100%;
   margin: 0 0 0 1em;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .main-icon {
@@ -83,4 +79,23 @@ p {
   width: 100%;
   height: 100%;
   z-index: 5;
+}
+
+@media only screen and (min-width: 900px) {
+  .vid-title {
+    font-size: 1.5em;
+  }
+
+  .main-src {
+    width: 450px;
+    height: 253px;
+  }
+
+  .vid-info {
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 400px;
+    height: 260px;
+  }
 }

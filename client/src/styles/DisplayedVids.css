@@ -8,6 +8,10 @@
   overflow: scroll;
 }
 
+.vid-info-container {
+  height: 300px;
+}
+
 .thumbs {
   grid-column: c1 / c2;
   grid-row: r2 / r3;
@@ -35,4 +39,11 @@
   grid-column: c1 / c2;
   grid-row: r2 / r3;
   width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+  .vid-info-container {
+    flex-flow: row nowrap;
+    height: 300px;
+  }
 }
