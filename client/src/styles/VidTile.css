@@ -5,9 +5,16 @@ p {
 }
 
 .vid-tile {
+  position: relative;
   width: 100%;
   margin: 2em auto;
   border-bottom: 1px dashed var(--color-dblue);
+}
+
+.main-src {
+  width: 450px;
+  height: 253px;
+  margin: 2.5em 1em;
 }
 
 .vid-src {
@@ -23,45 +30,36 @@ p {
 
 .vid-info {
   position: relative;
-  display: grid;
-  grid-template-columns: [vc1] 1fr [vc2] 4fr [vc3];
-  grid-template-rows: [vr1] 45px [vr2] 60px [vr3] 40px [vr4];
-  grid-gap: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 100%;
   max-width: 400px;
+  height: 260px;
 }
 
 .vid-title {
-  grid-column: vc1 / vc3;
-  grid-row: vr1 / vr2;
+  position: absolute;
+  top: 0;
+  left: 1.5em;
   max-width: 100%;
-  padding-left: 0.3em;
   margin: auto;
+  font-size: 1.5em;
   text-align: center;
 }
 
 .main-icon {
-  grid-column: vc1 / vc2;
-  grid-row: vr2 / vr4;
+  align-self: flex-end;
   width: 100%;
 }
 
 .vid-desc {
-  grid-column: vc2 / vc3;
-  grid-row: vr2 / vr3;
   width: 100%;
-  padding-left: 0.5em;
-  margin: 0 auto;
-  font-style: italic;
-  text-indent: 0em;
+  font-size: 1.1em;
 }
 
 .vid-tags {
-  grid-column: vc2 / vc3;
-  grid-row: vr3 / vr4;
   width: 100%;
-  padding-left: 0.5em;
-  margin: auto;
+  margin: 1.2em auto;
 }
 
 .vid-thumb {
