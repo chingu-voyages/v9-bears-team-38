@@ -4,9 +4,15 @@ import VideoIcon from './VideoIcon.js';
 
 import '../styles/VidTile.css';
 
-const VidThumb = ({vidObj}) => {
+const VidThumb = ({vidObj, setMainVid, pos}) => {
   return (
     <li className='vid-thumb'>
+      <span
+        className='cover-link pointer'
+        onClick={() => {
+          setMainVid(pos);
+        }}
+      />
       <iframe
         src={vidObj.url + '?showinfo=0'}
         className='vid-src'
