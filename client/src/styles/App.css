@@ -233,6 +233,7 @@ a:active {
   background-color: var(--color-ltheme);
   overflow: hidden;
   transition-duration: 200ms;
+  z-index: 5;
 }
 
 button {
@@ -371,6 +372,8 @@ footer {
   #login-modal {
     grid-column: c2 / c3;
     border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    box-shadow: 12px 1px 20px 1px var(--color-dblue);
   }
 
   main {

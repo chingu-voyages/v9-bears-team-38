@@ -11,7 +11,13 @@
 .thumbs {
   grid-column: c1 / c2;
   grid-row: r2 / r3;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
+  max-width: 1000px;
+  margin: auto;
   list-style-type: none;
 }
 
