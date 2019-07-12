@@ -17,7 +17,7 @@ const VidTile = ({vidObj}) => {
       <div className='vid-info'>
         <h3 className='vid-title'>{vidObj.title}</h3>
         <p className='vid-desc'>{vidObj.description}</p>
-        <VideoIcon category={vidObj.category} />
+        <VideoIcon classame='main-icon' category={vidObj.category} />
         <span className='pm0 vid-tags'>Tags: {vidObj.tags}</span>
       </div>
     </section>

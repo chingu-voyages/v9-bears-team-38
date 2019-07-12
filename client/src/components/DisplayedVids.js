@@ -13,11 +13,11 @@ const DisplayedVids = props => {
   let {state} = useContext(VideoContext);
 
   return (
-    <section>
+    <section className='all-vids'>
       {state.displayedVideos.length > 0 && (
         <VidTile vidObj={state.displayedVideos[0]} key='MAINVID' />
       )}
-      <ul className='pm0 all-vids'>
+      <ul className='fbr pm0 thumbs'>
         {state.displayedVideos.length > 0 ? (
           state.displayedVideos.map(vid => {
             return <VidThumb vidObj={vid} key={vid.title} />;

@@ -6,7 +6,7 @@ import '../styles/VidTile.css';
 
 const VidThumb = ({vidObj}) => {
   return (
-    <li className='fbc vid-thumb'>
+    <li className='vid-thumb'>
       <iframe
         src={vidObj.url + '?showinfo=0'}
         className='vid-src'
@@ -14,9 +14,7 @@ const VidThumb = ({vidObj}) => {
         allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
       />
-      <div className='vid-info'>
-        <VideoIcon category={vidObj.category} />
-      </div>
+      <VideoIcon classname='thumb-icon' category={vidObj.category} />
     </li>
   );
 };

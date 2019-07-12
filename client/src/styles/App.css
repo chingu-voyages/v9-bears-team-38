@@ -134,7 +134,8 @@ a:active {
   transition-delay: 300ms;
 }
 
-.fas {
+.fa-chevron-left,
+.fa-search {
   position: absolute;
   left: 3px;
   top: 40%;
