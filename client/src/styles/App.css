@@ -134,7 +134,8 @@ a:active {
   transition-delay: 300ms;
 }
 
-.fas {
+.fa-chevron-left,
+.fa-search {
   position: absolute;
   left: 3px;
   top: 40%;
@@ -212,12 +213,12 @@ a:active {
   font-variant: small-caps;
 }
 
-ul {
+.nav > ul {
   color: #000;
   list-style-type: none;
 }
 
-li {
+.nav > ul > li {
   padding: 0;
   margin: 0 0 0.5em -2em;
 }
@@ -232,6 +233,7 @@ li {
   background-color: var(--color-ltheme);
   overflow: hidden;
   transition-duration: 200ms;
+  z-index: 5;
 }
 
 button {
@@ -370,19 +372,13 @@ footer {
   #login-modal {
     grid-column: c2 / c3;
     border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    box-shadow: 12px 1px 20px 1px var(--color-dblue);
   }
 
   main {
     grid-column: c2 / c3;
     grid-row: r2 / r3;
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .all-vids .fbc:first-of-type {
-    flex-flow: row nowrap;
-    width: calc(100% - 64px);
-    padding: 0 32px;
   }
 }
 

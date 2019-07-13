@@ -39,6 +39,7 @@ const VideoContextProvider = props => {
   //Initial state to be fed to reducer, replaced by fetch above when promise resolves
   const initialState = {
     user: null,
+    filter: '',
     allVideos: [],
     displayedVideos: [],
   };
@@ -67,6 +68,7 @@ const VideoContextProvider = props => {
 
         return {
           ...state,
+          filter: action.searchQuery,
           displayedVideos: searchResults,
         };
       }

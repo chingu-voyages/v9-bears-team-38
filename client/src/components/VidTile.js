@@ -6,21 +6,27 @@ import '../styles/VidTile.css';
 
 const VidTile = ({vidObj}) => {
   return (
-    <li className='fbc vid-tile'>
-      <iframe
-        src={vidObj.url + '?showinfo=0'}
-        className='vid-src'
-        frameBorder='0'
-        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-      />
-      <div className='vid-info'>
-        <h3 className='vid-title'>{vidObj.title}</h3>
-        <p className='vid-desc'>{vidObj.description}</p>
-        <VideoIcon category={vidObj.category} />
-        <span className='pm0 vid-tags'>Tags: {vidObj.tags}</span>
+    <section className='vid-tile'>
+      <h3 className='vid-title'>{vidObj.title}</h3>
+      <div className='fbc vid-info-container'>
+        <iframe
+          src={vidObj.url + '?showinfo=0'}
+          className='main-src'
+          frameBorder='0'
+          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+        />
+        <div className='fbc vid-info'>
+          <p className='pm0 vid-desc'>{vidObj.description}</p>
+          <span className='pm0 vid-tags'>
+            <strong>Starring:</strong> {vidObj.starring}
+          </span>
+          <span className='pm0 vid-tags'>
+            <strong>Tags:</strong> {vidObj.tags}
+          </span>
+        </div>
       </div>
-    </li>
+    </section>
   );
 };
 

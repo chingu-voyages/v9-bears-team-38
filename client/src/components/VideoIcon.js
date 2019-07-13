@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoIcon = ({category}) => {
+const VideoIcon = ({category, classname}) => {
   //Choose correct icon for category
   const cat = category;
   let switchOutput;
@@ -32,9 +32,8 @@ const VideoIcon = ({category}) => {
   }
 
   return (
-    <span className='fbc pm0 tile-icon'>
+    <span className={`fbc pm0 ${classname}`}>
       <i className={`${switchOutput} fa-2x`} />
-      <span className='pm0'>{category}</span>
     </span>
   );
 };

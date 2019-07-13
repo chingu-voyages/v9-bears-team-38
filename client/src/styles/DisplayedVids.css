@@ -8,9 +8,42 @@
   overflow: scroll;
 }
 
+.vid-info-container {
+  height: 300px;
+}
+
+.thumbs {
+  grid-column: c1 / c2;
+  grid-row: r2 / r3;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  list-style-type: none;
+}
+
+.fa-2x {
+  color: #000;
+}
+
+.current-displayed {
+  padding: 1em 0 0 1em;
+  border-top: 1px dashed var(--color-dblue);
+}
+
 /* Search Error */
 .search-error {
   grid-column: c1 / c2;
   grid-row: r2 / r3;
   width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+  .vid-info-container {
+    flex-flow: row nowrap;
+    height: 300px;
+  }
 }
