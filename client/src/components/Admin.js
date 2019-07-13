@@ -112,7 +112,7 @@ const Admin = ({handleShowAdmin}) => {
         />
         <datalist id='categories'>
           <option value='AMA' />
-          <option valuse='Tutorial' />
+          <option value='Tutorial' />
           <option value='Project' />
           <option value='Meet The Dev' />
           <option value='Visualization' />
