@@ -15,6 +15,10 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpg|gif|webp)$/,
+        loader: 'url?limit=20000',
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {

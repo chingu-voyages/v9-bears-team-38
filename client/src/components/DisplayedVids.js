@@ -15,7 +15,6 @@ const DisplayedVids = props => {
     <ul className='pm0 all-vids'>
       {state.displayedVideos.length > 0 ? (
         state.displayedVideos.map(vid => {
-          console.log('This is a test');
           return <VidTile vidObj={vid} key={vid.title} />;
         })
       ) : (
