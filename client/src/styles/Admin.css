@@ -1,0 +1,39 @@
+@import './App.css';
+
+.admin-container {
+  position: relative;
+  grid-column: c1 / c2;
+  grid-row: r2 / r3;
+  width: 100%;
+  min-height: calc(100vh - 150px);
+  max-height: 100vh;
+  background-color: var(--color-lgray);
+  overflow: scroll;
+  z-index: 5;
+}
+
+#add-vid-form {
+  position: absolute;
+  top: 70px;
+  margin: 0.5em auto;
+}
+
+label {
+  margin: 0.8em auto 0 0;
+}
+
+input {
+  width: 250px;
+  padding: 0.5em 0;
+  margin: 1em 0;
+}
+
+#close-login > button {
+  margin-left: 1em;
+}
+
+@media only screen and (min-width: 600px) {
+  .admin-container {
+    grid-column: c2 / c3;
+  }
+}

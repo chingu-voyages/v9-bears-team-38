@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 
-import '../styles/AddVideo.css';
+import {VideoContext} from './VideoStore.js';
 
-const AddVideo = () => {
+import '../styles/Admin.css';
+
+const Admin = ({handleShowAdmin}) => {
+  const {state, dispatch} = useContext(VideoContext);
+
   //Local state for controlled htmlForm
   const [_title, setTitle] = useState('');
   const [_url, setUrl] = useState('');
@@ -28,22 +32,48 @@ const AddVideo = () => {
       method: 'POST',
       body: JSON.stringify(postBody),
       headers: {'Content-Type': 'application/json'},
-    }).then(response => console.log(response));
+    }).then(response => {
+      if (response.status === 200) {
+        alert('Video was successfully added to database');
+      } else {
+        alert('There was an issue adding this video, please try again');
+      }
+    });
+    resetForm();
   };
 
-  // Get videos
-  const getVideos = e => {
+  const handleLogoutUser = e => {
     e.preventDefault();
-    fetch('/api/getvid', {
-      method: 'GET',
-    }).then(response => console.log(response));
+    handleShowAdmin();
+    dispatch({
+      type: 'clearUser',
+    });
+  };
+
+  const resetForm = () => {
+    setTitle('');
+    setUrl('');
+    setDate('');
+    setCategory('');
+    setDescription('');
+    setTags('');
+    setStarring('');
   };
 
   return (
-    <div className='add-video-container fbc'>
+    <div className='admin-container fbc'>
+      <aside id='close-login' className='fbr'>
+        <button onClick={handleShowAdmin} className='lbgc'>
+          close
+        </button>
+        <button onClick={handleLogoutUser} className='lbgc'>
+          Logout
+        </button>
+      </aside>
       <form id='add-vid-form' className='fbc' onSubmit={addVideo}>
         <label htmlFor='title'>Title:</label>
         <input
+          maxLength='40'
           type='text'
           id='title'
           value={_title}
@@ -53,42 +83,55 @@ const AddVideo = () => {
         />
         <label htmlFor='url'>URL:</label>
         <input
+          maxLength='40'
           type='text'
           id='url'
           value={_url}
           onChange={e => setUrl(e.target.value)}
-          placeholder='URL Where The Video Lives'
+          placeholder='EMBED URL - https://youtube.com/embed/...'
           required
         />
         <label htmlFor='date'>Date:</label>
         <input
+          maxLength='12'
           type='text'
           id='date'
           value={_date}
           onChange={e => setDate(e.target.value)}
-          placeholder='Date Video Was Released'
+          placeholder='e.g. 06/12/2019'
           required
         />
         <label htmlFor='category'>Category:</label>
         <input
-          type='text'
+          list='categories'
           id='category'
           value={_category}
           onChange={e => setCategory(e.target.value)}
-          placeholder='AMA, Tutorial, Voyage 9, etc'
+          placeholder='AMA, Tutorial, etc'
           required
         />
+        <datalist id='categories'>
+          <option value='AMA' />
+          <option valuse='Tutorial' />
+          <option value='Project' />
+          <option value='Meet The Dev' />
+          <option value='Visualization' />
+          <option value='Showcase' />
+          <option value='Other' />
+        </datalist>
         <label htmlFor='description'>Description:</label>
         <input
+          maxLength='100'
           type='test'
           id='description'
           value={_description}
           onChange={e => setDescription(e.target.value)}
-          placeholder='This video is about...'
+          placeholder='100 characters or less for description'
           required
         />
         <label htmlFor='tags'>Tags:</label>
         <input
+          maxLength='30'
           type='text'
           id='tags'
           value={_tags}
@@ -98,6 +141,7 @@ const AddVideo = () => {
         />
         <label htmlFor='starring'>Starring:</label>
         <input
+          maxLength='25'
           type='text'
           id='starring'
           value={_starring}
@@ -107,13 +151,12 @@ const AddVideo = () => {
         <input
           type='submit'
           id='vid-submit'
-          className='heading-text submit-button'
+          className='heading-text submit-button lbgc'
           value='Submit Video'
         />
       </form>
-      <button onClick={getVideos}>Get Videos</button>
     </div>
   );
 };
 
-export default AddVideo;
+export default Admin;

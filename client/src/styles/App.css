@@ -1,9 +1,13 @@
 /* General normalizing */
+html {
+  height: 100%;
+}
 
 body {
   font-family: var(--font);
   font-weight: 400;
   max-width: 100vw;
+  min-height: 100%;
   padding: 0;
   margin: 0;
 }
@@ -49,6 +53,13 @@ a:active {
   align-items: center;
 }
 
+.fbr-wrap {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -79,7 +90,7 @@ a:active {
   grid-template-rows: [r1] 100px [r2] 1fr [r3] 50px [r4];
   grid-gap: 0;
   max-width: 100vw;
-  min-height: 100vh;
+  min-height: 100%;
   background-color: #fff;
 }
 
@@ -123,7 +134,8 @@ a:active {
   transition-delay: 300ms;
 }
 
-.fas {
+.fa-chevron-left,
+.fa-search {
   position: absolute;
   left: 3px;
   top: 40%;
@@ -201,12 +213,12 @@ a:active {
   font-variant: small-caps;
 }
 
-ul {
+.nav > ul {
   color: #000;
   list-style-type: none;
 }
 
-li {
+.nav > ul > li {
   padding: 0;
   margin: 0 0 0.5em -2em;
 }
@@ -221,6 +233,7 @@ li {
   background-color: var(--color-ltheme);
   overflow: hidden;
   transition-duration: 200ms;
+  z-index: 5;
 }
 
 button {
@@ -256,7 +269,7 @@ main {
   grid-column: c1 / c2;
   grid-row: r2 / r3;
   max-width: 100%;
-  height: calc(100vh - 120px);
+  height: 100%;
   background-color: var(--color-lgray);
 }
 
@@ -353,16 +366,24 @@ footer {
     grid-column: c1 / c2;
     grid-row: r2 / r3;
     width: 100%;
-    height: calc(100vh - 120px);
+    height: 100%;
   }
 
   #login-modal {
     grid-column: c2 / c3;
     border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    box-shadow: 12px 1px 20px 1px var(--color-dblue);
   }
 
   main {
     grid-column: c2 / c3;
     grid-row: r2 / r3;
+  }
+}
+
+@media only screen and (max-width: 899px) {
+  .mobile-hidden {
+    display: none;
   }
 }
