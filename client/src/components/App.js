@@ -58,7 +58,10 @@ class App extends Component {
           />
           <h1 className='b pm0 tc main-title'>Chingu Learning Portal</h1>
           <div className={!!this.state.showTray ? 'tray show-tray' : 'tray'}>
-            <i className='fas fa-chevron-left' onClick={this.handleShowTray} />
+            <i
+              className='fas fa-grip-lines-vertical'
+              onClick={this.handleShowTray}
+            />
             <Search />
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
