@@ -33,8 +33,9 @@
 
 .current-displayed {
   height: 25px;
-  padding: 0.2em 0 0 0.2em;
+  padding: 0.2em 0 0.2em 0.2em;
   margin: 0;
+  font-weight: 200;
   border-top: 1px dashed var(--color-dblue);
 }
 

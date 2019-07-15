@@ -5,9 +5,9 @@ import VideoIcon from './VideoIcon.js';
 import '../styles/VidTile.css';
 
 const VidThumb = ({vidObj, setMainVid, pos}) => {
-  let subStringTitle = `${vidObj.title.substring(0, 25)} ...`;
+  let subStringTitle = `${vidObj.title.substring(0, 33)} ...`;
   return (
-    <li className='vid-thumb'>
+    <li className='fbc vid-thumb'>
       <span
         className='cover-link pointer'
         onClick={() => {
@@ -21,8 +21,10 @@ const VidThumb = ({vidObj, setMainVid, pos}) => {
         allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
         allowFullScreen
       />
-      <VideoIcon classname='thumb-icon' category={vidObj.category} />
-      <h5 className='thumb-title'>{subStringTitle}</h5>
+      <div className='fbr thumb-info'>
+        <VideoIcon classname='thumb-icon' category={vidObj.category} />
+        <h5 className='thumb-title'>{subStringTitle}</h5>
+      </div>
     </li>
   );
 };

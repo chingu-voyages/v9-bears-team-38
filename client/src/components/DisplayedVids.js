@@ -29,7 +29,8 @@ const DisplayedVids = props => {
         )}
       </div>
       <h3 className='current-displayed'>
-        {state.filter === '' ? 'All' : state.filter} Videos
+        {state.filter === '' ? 'All' : state.filter} Videos (
+        {state.displayedVideos.length})
       </h3>
       <ul className='fbr pm0 thumbs'>
         {state.displayedVideos.length > 0 ? (

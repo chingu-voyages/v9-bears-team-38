@@ -20,13 +20,7 @@ p {
   margin: 1em 0;
 }
 
-.vid-src {
-  width: 200px;
-  margin-top: 0.2em;
-  height: 114px;
-}
-
-.fa-2x {
+.fa-3x {
   padding: 0.1em;
   border-radius: 20%;
   background-color: var(--color-ltheme);
@@ -54,7 +48,9 @@ p {
 
 .vid-desc {
   width: 100%;
+  margin-bottom: 0.5em;
   font-size: 1em;
+  font-weight: 200;
   text-indent: 0;
 }
 
@@ -65,17 +61,9 @@ p {
 
 .vid-thumb {
   position: relative;
-  width: 200px;
-  height: 160px;
-  margin: 1em;
-}
-
-.thumb-icon {
-  position: absolute;
-  bottom: 6px;
-  left: 0;
-  z-index: 3;
-  font-size: 10px;
+  width: 90%;
+  height: 250px;
+  margin: 0 0 2em 0;
 }
 
 .cover-link {
@@ -87,9 +75,27 @@ p {
   z-index: 5;
 }
 
+.vid-src {
+  width: 100%;
+  margin: 0.2em auto;
+}
+
+.thumb-info {
+  height: 40px;
+}
+
+.thumb-icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  font-size: 10px;
+}
+
 .thumb-title {
-  padding-left: 35px;
-  margin: 5px 0 0 0;
+  padding-left: 12px;
+  margin: 0;
+  font-size: 0.9em;
 }
 
 @media only screen and (min-width: 900px) {
