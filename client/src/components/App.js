@@ -33,6 +33,11 @@ class App extends Component {
       : this.setState({showNav: true});
   };
 
+  //Closes Nav
+  handleCloseNav = () => {
+    this.setState({showNav: false});
+  };
+
   //Toggles showing the Login form
   handleShowLogin = () => {
     !!this.state.showLogin
@@ -77,7 +82,7 @@ class App extends Component {
             )}
           </div>
         </header>
-        <Nav showNav={this.state.showNav} />
+        <Nav showNav={this.state.showNav} closeNav={this.handleCloseNav} />
         <Login
           showLogin={this.state.showLogin}
           handleShowLogin={this.handleShowLogin}
@@ -87,6 +92,10 @@ class App extends Component {
         )}
         <main className='fbc'>
           {!this.state.showAdmin && <DisplayedVids />}
+          <aside className='scroll-indicator'>
+            <p className='pm0'>scroll</p>
+            <i className='fas fa-chevron-down' />
+          </aside>
         </main>
       </div>
     );

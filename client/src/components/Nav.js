@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {VideoContext} from './VideoStore.js';
 
-const Nav = ({showNav}) => {
+const Nav = ({showNav, closeNav}) => {
   const {dispatch} = useContext(VideoContext);
   const categories = [
     'AMA',
@@ -24,6 +24,7 @@ const Nav = ({showNav}) => {
               type: 'search',
               searchQuery: '',
             });
+            closeNav();
           }}>
           All
         </li>
@@ -37,6 +38,7 @@ const Nav = ({showNav}) => {
                   type: 'search',
                   searchQuery: cat,
                 });
+                closeNav();
               }}>
               {cat}
             </li>
