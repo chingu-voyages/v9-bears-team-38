@@ -17,6 +17,7 @@ class App extends Component {
     showLogin: false,
     showAdmin: false,
     searchQuery: '',
+    currentVid: 0,
   };
 
   //Toggles showing the "tray" on mobile
@@ -52,6 +53,10 @@ class App extends Component {
       : this.setState({showAdmin: true});
   };
 
+  handleMainVidToZero = pos => {
+    this.setState({currentVid: pos});
+  };
+
   render() {
     return (
       <div id='app-container' className='pm0' title='app-container'>
@@ -82,7 +87,11 @@ class App extends Component {
             )}
           </div>
         </header>
-        <Nav showNav={this.state.showNav} closeNav={this.handleCloseNav} />
+        <Nav
+          showNav={this.state.showNav}
+          closeNav={this.handleCloseNav}
+          setCurrentVid={this.handleMainVidToZero}
+        />
         <Login
           showLogin={this.state.showLogin}
           handleShowLogin={this.handleShowLogin}
@@ -91,7 +100,12 @@ class App extends Component {
           <Admin handleShowAdmin={this.handleShowAdmin} />
         )}
         <main className='fbc'>
-          {!this.state.showAdmin && <DisplayedVids />}
+          {!this.state.showAdmin && (
+            <DisplayedVids
+              currentVid={this.state.currentVid}
+              setCurrentVid={this.handleMainVidToZero}
+            />
+          )}
           <aside className='scroll-indicator'>
             <p className='pm0'>scroll</p>
             <i className='fas fa-chevron-down' />
