@@ -87,7 +87,6 @@ p {
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index: 3;
   font-size: 10px;
 }
 
@@ -128,7 +127,10 @@ p {
 
   .vid-thumb {
     width: 200px;
-    margin: auto 1em;
+  }
+
+  .thumb-icon {
+    position: relative;
   }
 }
 
@@ -145,6 +147,7 @@ p {
   .main-src {
     width: 400px;
     height: 281px;
+    margin-left: 0.5em;
   }
 
   .vid-info {
