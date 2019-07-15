@@ -114,7 +114,12 @@
                   case 'search': {
                     const n = new RegExp(i()(t.searchQuery), 'i'),
                       r = e.allVideos.filter(e => {
-                        if (n.test(e.title) || !0 === n.test(e.tags)) return !0;
+                        if (
+                          n.test(e.title) ||
+                          n.test(e.category) ||
+                          !0 === n.test(e.tags)
+                        )
+                          return !0;
                       });
                     return {...e, filter: t.searchQuery, displayedVideos: r};
                   }
@@ -241,7 +246,7 @@
   function(e, t, n) {
     (e.exports = n(4)(!1)).push([
       e.i,
-      "/* General normalizing */\nhtml {\n  height: 100%;\n}\n\nbody {\n  font-family: var(--font);\n  font-weight: 400;\n  max-width: 100vw;\n  min-height: 100%;\n  padding: 0;\n  margin: 0;\n}\n\n/* Links */\na:link,\na:visited,\na:hover,\na:active {\n  text-decoration: none;\n  color: inherit;\n}\n\n/* CSS Variables */\n:root {\n  --font: 'Raleway', sans-serif;\n  --color-theme: #16e28b;\n  --color-ltheme: #93e8c4;\n  --color-bg: #000;\n  --color-gray: #bbb;\n  --color-lgray: #f8f8f8;\n  --color-dblue: #080a38;\n}\n\n/* Common Styles */\n\n.pm0 {\n  padding: 0;\n  margin: 0;\n}\n\n.fbc {\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: center;\n  align-items: center;\n}\n\n.fbr {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: center;\n  align-items: center;\n}\n\n.fbr-wrap {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n\n.b {\n  font-weight: 600;\n  font-size: 1.8em;\n}\n\n.tc {\n  color: var(--color-theme);\n}\n\n.dbgc {\n  background-color: var(--color-bg);\n}\n\n.lbgc {\n  background-color: var(--color-ltheme);\n}\n\n/* App Component Styling */\n\n#app-container {\n  position: relative;\n  display: grid;\n  grid-template-columns: [c1] 1fr [c2];\n  grid-template-rows: [r1] 100px [r2] 1fr [r3] 50px [r4];\n  grid-gap: 0;\n  max-width: 100vw;\n  min-height: 100%;\n  background-color: #fff;\n}\n\n.header {\n  grid-column: c1 / c2;\n  grid-row: r1 / r2;\n  display: grid;\n  grid-template-columns: [hc1] 1fr [hc2] 3fr [hc3] 20px [hc4];\n  grid-template-rows: [hr1] 50px [hr2] 50px [hr3];\n  width: 100%;\n  height: 100px;\n  z-index: 3;\n}\n\n.logo {\n  grid-column: hc1 / hc2;\n  grid-row: hr1 / hr3;\n  width: 60px;\n  height: 60px;\n  padding: 0.8em;\n  margin: auto;\n}\n\n.main-title {\n  grid-column: hc2 / hc3;\n  grid-row: hr1 / hr3;\n  margin: auto auto auto 0.2em;\n  font-size: 1.3em;\n}\n\n.tray {\n  position: relative;\n  grid-column: hc3 / hc4;\n  grid-row: hr1 / hr3;\n  display: grid;\n  grid-template-columns: [tc1] 20px [tc2] 1fr [tc3] 1fr [tc4];\n  grid-template-rows: [tr1] 1fr [tr2] 1fr [tr3];\n  background-color: #080a38;\n  border-left: 1px solid var(--color-lgray);\n  overflow: hidden;\n  transition-delay: 300ms;\n}\n\n.fa-chevron-left,\n.fa-search {\n  position: absolute;\n  left: 3px;\n  top: 40%;\n  color: var(--color-lgray);\n}\n\n.show-tray {\n  grid-column: hc2 / hc4;\n}\n\n.search-box {\n  position: relative;\n  grid-column: tc2 / tc4;\n  grid-row: tr1 / tr2;\n  width: 210px;\n  margin: auto;\n}\n\n#search {\n  width: 200px;\n  padding-left: 0.4em;\n  margin: auto;\n  color: #fff;\n  background-color: var(--color-bg);\n  border: 1px solid #fff;\n  overflow: hidden;\n}\n\n#search::placeholder {\n  color: var(--color-gray);\n  font-style: italic;\n}\n\n.search-box > i {\n  position: absolute;\n  left: 183px;\n  top: 5px;\n}\n\n.tp1 {\n  grid-column: tc2 / tc3;\n  grid-row: tr2 / tr3;\n  margin: auto;\n}\n\n.tp2 {\n  grid-column: tc3 / tc4;\n  grid-row: tr2 / tr3;\n  margin: auto;\n}\n\n.nav {\n  position: relative;\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  justify-content: flex-start;\n  width: 100%;\n  height: 0;\n  transition-duration: 500ms;\n  overflow: hidden;\n  z-index: 2;\n}\n\n.show-nav {\n  height: 500px;\n}\n\n.flip {\n  transform: rotate(180deg);\n}\n\n.playlists {\n  margin: 2em 0 0.5em 0;\n  color: var(--color-bg);\n  font-variant: small-caps;\n}\n\n.nav > ul {\n  color: #000;\n  list-style-type: none;\n}\n\n.nav > ul > li {\n  padding: 0;\n  margin: 0 0 0.5em -2em;\n}\n\n#login-modal {\n  grid-column: c1 / c3;\n  position: absolute;\n  top: 100px;\n  left: 0;\n  width: 100%;\n  color: #000;\n  background-color: var(--color-ltheme);\n  overflow: hidden;\n  transition-duration: 200ms;\n  z-index: 5;\n}\n\nbutton {\n  background-color: var(--color-lgray);\n}\n\n#close-login {\n  position: absolute;\n  top: 15px;\n  right: 20px;\n}\n\n#login-form > div > input {\n  margin: 0.5em 1em;\n}\n\n#submit-login {\n  padding: 0.2em 0.5em;\n  margin: auto;\n  font-family: var(--font);\n  background-color: #fff;\n}\n\n.hide-login {\n  height: 0;\n}\n\n.show-login {\n  height: 100px;\n}\n\nmain {\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  max-width: 100%;\n  height: 100%;\n  background-color: var(--color-lgray);\n}\n\n.most-recent {\n  width: 95%;\n  height: 33%;\n  background-color: #fff;\n  border-bottom: 15px solid var(--color-lgray);\n}\n\n.other-vids {\n  width: 95%;\n  height: 63%;\n  background-color: #fff;\n}\n\nfooter {\n  grid-column: c1 / c2;\n  grid-row: r3 / r4;\n}\n\n@media only screen and (min-width: 600px) {\n  #app-container {\n    display: grid;\n    grid-template-columns: [c1] 1.5fr [c2] 5fr [c3];\n    grid-template-rows: [r1] 100px [r2] 1fr [r3];\n    grid-gap: 0;\n    background-color: #fff;\n  }\n\n  .header {\n    grid-column: c1 / c3;\n    grid-row: r1 / r2;\n    display: grid;\n    grid-template-columns: [hc1] 1fr [hc2] 1.5fr [hc3] 1fr [hc4];\n    grid-template-rows: [hr1] 50px [hr2] 50px [hr3];\n    width: 100%;\n    height: 100px;\n    z-index: 3;\n  }\n\n  .logo {\n    width: 80px;\n    height: 80px;\n  }\n\n  .main-title {\n    margin-left: 0.3em;\n    font-size: 2em;\n  }\n\n  .tray {\n    position: relative;\n    grid-column: hc3 / hc4;\n    grid-row: hr1 / hr3;\n    display: grid;\n    grid-template-columns: [tc1] 1fr [tc2];\n    grid-template-rows: [tr1] 1fr [tr2];\n    background-color: var(--color-bg);\n    border: none;\n  }\n\n  .search-box {\n    grid-column: tc1 / tc2;\n    grid-row: tr1 / tr2;\n    margin: auto auto auto 0;\n  }\n\n  #search {\n    width: 200px;\n    border: 1px solid #fff;\n  }\n\n  .fa-search {\n  }\n\n  .tp1 {\n    display: none;\n  }\n\n  .tp2 {\n    grid-column: tc1 / tc2;\n    grid-row: tr1 / tr2;\n    margin: auto auto auto 220px;\n    font-size: 0.8em;\n  }\n\n  .fa-chevron-left {\n    display: none;\n  }\n\n  .nav {\n    justify-content: flex-start;\n    grid-column: c1 / c2;\n    grid-row: r2 / r3;\n    width: 100%;\n    height: 100%;\n  }\n\n  #login-modal {\n    grid-column: c2 / c3;\n    border-left: 1px solid #000;\n    border-bottom: 1px solid #000;\n    box-shadow: 12px 1px 20px 1px var(--color-dblue);\n  }\n\n  main {\n    grid-column: c2 / c3;\n    grid-row: r2 / r3;\n  }\n}\n\n@media only screen and (max-width: 899px) {\n  .mobile-hidden {\n    display: none;\n  }\n}\n",
+      "/* General normalizing */\nhtml {\n  height: 100%;\n}\n\nbody {\n  font-family: var(--font);\n  font-weight: 400;\n  max-width: 100vw;\n  min-height: 100%;\n  padding: 0;\n  margin: 0;\n}\n\n/* Links */\na:link,\na:visited,\na:hover,\na:active {\n  text-decoration: none;\n  color: inherit;\n}\n\n/* CSS Variables */\n:root {\n  --font: 'Raleway', sans-serif;\n  --color-theme: #16e28b;\n  --color-ltheme: #93e8c4;\n  --color-bg: #000;\n  --color-gray: #bbb;\n  --color-lgray: #f8f8f8;\n  --color-dblue: #080a38;\n}\n\n/* Common Styles */\n\n.pm0 {\n  padding: 0;\n  margin: 0;\n}\n\n.fbc {\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: center;\n  align-items: center;\n}\n\n.fbr {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: center;\n  align-items: center;\n}\n\n.fbr-wrap {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: center;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n\n.b {\n  font-weight: 600;\n  font-size: 1.8em;\n}\n\n.tc {\n  color: var(--color-theme);\n}\n\n.dbgc {\n  background-color: var(--color-bg);\n}\n\n.lbgc {\n  background-color: var(--color-ltheme);\n}\n\n/* App Component Styling */\n\n#app-container {\n  position: relative;\n  display: grid;\n  grid-template-columns: [c1] 1fr [c2];\n  grid-template-rows: [r1] 100px [r2] 1fr [r3];\n  grid-gap: 0;\n  max-width: 100vw;\n  min-height: 100%;\n  background-color: #fff;\n}\n\n.header {\n  grid-column: c1 / c2;\n  grid-row: r1 / r2;\n  display: grid;\n  grid-template-columns: [hc1] 1fr [hc2] 3fr [hc3] 20px [hc4];\n  grid-template-rows: [hr1] 50px [hr2] 50px [hr3];\n  width: 100%;\n  height: 100px;\n  z-index: 3;\n}\n\n.logo {\n  grid-column: hc1 / hc2;\n  grid-row: hr1 / hr3;\n  width: 60px;\n  height: 60px;\n  padding: 0.8em;\n  margin: auto;\n}\n\n.main-title {\n  grid-column: hc2 / hc3;\n  grid-row: hr1 / hr3;\n  margin: auto auto auto 0.2em;\n  font-size: 1.3em;\n}\n\n.tray {\n  position: relative;\n  grid-column: hc3 / hc4;\n  grid-row: hr1 / hr3;\n  display: grid;\n  grid-template-columns: [tc1] 20px [tc2] 1fr [tc3] 1fr [tc4];\n  grid-template-rows: [tr1] 1fr [tr2] 1fr [tr3];\n  background-color: #080a38;\n  border-left: 1px solid var(--color-lgray);\n  overflow: hidden;\n  transition-delay: 300ms;\n}\n\n.fa-grip-lines-vertical,\n.fa-search {\n  position: absolute;\n  left: 3px;\n  top: 40%;\n  color: var(--color-lgray);\n}\n\n.show-tray {\n  grid-column: hc2 / hc4;\n}\n\n.search-box {\n  position: relative;\n  grid-column: tc2 / tc4;\n  grid-row: tr1 / tr2;\n  width: 210px;\n  margin: auto;\n}\n\n#search {\n  width: 200px;\n  padding-left: 0.4em;\n  margin: auto;\n  color: #fff;\n  background-color: var(--color-bg);\n  border: 1px solid #fff;\n  overflow: hidden;\n}\n\n#search::placeholder {\n  color: var(--color-gray);\n  font-style: italic;\n}\n\n.search-box > i {\n  position: absolute;\n  left: 183px;\n  top: 5px;\n}\n\n.tp1 {\n  grid-column: tc2 / tc3;\n  grid-row: tr2 / tr3;\n  margin: auto;\n}\n\n.tp2 {\n  grid-column: tc3 / tc4;\n  grid-row: tr2 / tr3;\n  margin: auto;\n}\n\n.nav {\n  position: relative;\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  justify-content: flex-start;\n  width: 100%;\n  height: 0;\n  transition-duration: 500ms;\n  overflow: hidden;\n  z-index: 2;\n}\n\n.show-nav {\n  height: 500px;\n}\n\n.flip {\n  transform: rotate(180deg);\n}\n\n.playlists {\n  margin: 2em 0 0.5em 0;\n  color: var(--color-bg);\n  font-variant: small-caps;\n}\n\n.nav > ul {\n  color: #000;\n  list-style-type: none;\n}\n\n.nav > ul > li {\n  padding: 0;\n  margin: 0 0 0.5em -2em;\n}\n\n#login-modal {\n  grid-column: c1 / c3;\n  position: absolute;\n  top: 100px;\n  left: 0;\n  width: 100%;\n  color: #000;\n  background-color: var(--color-ltheme);\n  overflow: hidden;\n  transition-duration: 200ms;\n  z-index: 5;\n}\n\nbutton {\n  background-color: var(--color-lgray);\n}\n\n#close-login {\n  position: absolute;\n  top: 15px;\n  right: 20px;\n}\n\n#login-form > div > input {\n  margin: 0.5em 1em;\n}\n\n#submit-login {\n  padding: 0.2em 0.5em;\n  margin: auto;\n  font-family: var(--font);\n  background-color: #fff;\n}\n\n.hide-login {\n  height: 0;\n}\n\n.show-login {\n  height: 100px;\n}\n\nmain {\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  width: 100%;\n  height: 100%;\n  background-color: var(--color-lgray);\n}\n\n.scroll-indicator {\n  position: fixed;\n  bottom: 5px;\n  right: 8px;\n  width: 60px;\n  padding: 0;\n  margin: 0;\n  color: var(--color-gray);\n  text-align: right;\n}\n\n.most-recent {\n  width: 95%;\n  height: 33%;\n  background-color: #fff;\n  border-bottom: 15px solid var(--color-lgray);\n}\n\n.other-vids {\n  width: 95%;\n  height: 63%;\n  background-color: #fff;\n}\n\n@media only screen and (min-width: 600px) {\n  #app-container {\n    display: grid;\n    grid-template-columns: [c1] 1.5fr [c2] 5fr [c3];\n    grid-template-rows: [r1] 100px [r2] 1fr [r3];\n    grid-gap: 0;\n    background-color: #fff;\n  }\n\n  .header {\n    grid-column: c1 / c3;\n    grid-row: r1 / r2;\n    display: grid;\n    grid-template-columns: [hc1] 0.5fr [hc2] 0.75fr [hc3] 1fr [hc4];\n    grid-template-rows: [hr1] 50px [hr2] 50px [hr3];\n    width: 100%;\n    height: 100px;\n    z-index: 3;\n  }\n\n  .logo {\n    width: 60px;\n    height: 60px;\n  }\n\n  .main-title {\n    margin-left: 0.3em;\n    font-size: 1.2em;\n  }\n\n  .tray {\n    position: relative;\n    grid-column: hc3 / hc4;\n    grid-row: hr1 / hr3;\n    display: grid;\n    grid-template-columns: [tc1] 1fr [tc2];\n    grid-template-rows: [tr1] 1fr [tr2];\n    background-color: var(--color-bg);\n    border: none;\n  }\n\n  .search-box {\n    grid-column: tc1 / tc2;\n    grid-row: tr1 / tr2;\n    margin: auto auto auto 0;\n  }\n\n  #search {\n    width: 200px;\n    border: 1px solid #fff;\n  }\n\n  .fa-search {\n  }\n\n  .tp1 {\n    display: none;\n  }\n\n  .tp2 {\n    grid-column: tc1 / tc2;\n    grid-row: tr1 / tr2;\n    margin: auto auto auto 220px;\n    font-size: 0.8em;\n  }\n\n  .fa-chevron-left {\n    display: none;\n  }\n\n  .nav {\n    justify-content: flex-start;\n    grid-column: c1 / c2;\n    grid-row: r2 / r3;\n    width: 100%;\n    height: 100%;\n  }\n\n  #login-modal {\n    grid-column: c2 / c3;\n    border-left: 1px solid #000;\n    border-bottom: 1px solid #000;\n    box-shadow: 12px 1px 20px 1px var(--color-dblue);\n  }\n\n  main {\n    grid-column: c2 / c3;\n    grid-row: r2 / r3;\n  }\n}\n\n@media only screen and (min-width: 750px) {\n  .header {\n    grid-template-columns: [hc1] 0.75fr [hc2] 1fr [hc3] 1fr [hc4];\n  }\n\n  .logo {\n    width: 70px;\n    height: 70px;\n  }\n\n  .main-title {\n    font-size: 1.3em;\n  }\n}\n\n@media only screen and (min-width: 900px) {\n  #app-container {\n    grid-template-columns: [c1] 1fr [c2] 4fr [c3];\n  }\n\n  .header {\n    grid-template-columns: [hc1] 0.5fr [hc2] 1.2fr [hc3] 1fr [hc4];\n  }\n\n  .logo {\n    width: 80px;\n    height: 80px;\n  }\n\n  .main-title {\n    font-size: 1.8em;\n  }\n}\n",
       '',
     ]);
   },
@@ -520,7 +525,7 @@
           return o.a.createElement(
             'span',
             {className: `fbc pm0 ${t}`},
-            o.a.createElement('i', {className: `${n} fa-2x`}),
+            o.a.createElement('i', {className: `${n} fa-3x`}),
           );
         },
         i = l;
@@ -745,6 +750,9 @@ object-assign
                 ? this.setState({showNav: !1})
                 : this.setState({showNav: !0});
             }),
+            _defineProperty(this, 'handleCloseNav', () => {
+              this.setState({showNav: !1});
+            }),
             _defineProperty(this, 'handleShowLogin', () => {
               this.state.showLogin
                 ? this.setState({showLogin: !1})
@@ -782,7 +790,7 @@ object-assign
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
                   'i',
                   {
-                    className: 'fas fa-chevron-left',
+                    className: 'fas fa-grip-lines-vertical',
                     onClick: this.handleShowTray,
                   },
                 ),
@@ -816,7 +824,7 @@ object-assign
             ),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
               _Nav_js__WEBPACK_IMPORTED_MODULE_3__.a,
-              {showNav: this.state.showNav},
+              {showNav: this.state.showNav, closeNav: this.handleCloseNav},
             ),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
               _Login_js__WEBPACK_IMPORTED_MODULE_5__.a,
@@ -838,10 +846,19 @@ object-assign
                   _DisplayedVids_js__WEBPACK_IMPORTED_MODULE_6__.a,
                   null,
                 ),
-            ),
-            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
-              'footer',
-              null,
+              react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                'aside',
+                {className: 'scroll-indicator'},
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                  'p',
+                  {className: 'pm0'},
+                  'scroll',
+                ),
+                react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
+                  'i',
+                  {className: 'fas fa-chevron-down'},
+                ),
+              ),
             ),
           );
         }
@@ -902,8 +919,8 @@ object-assign
           : function(e) {
               return e;
             };
-      const u = ({showNav: e}) => {
-        const {dispatch: t} = Object(a.useContext)(l.a);
+      const u = ({showNav: e, closeNav: t}) => {
+        const {dispatch: n} = Object(a.useContext)(l.a);
         return o.a.createElement(
           'nav',
           {className: e ? 'lbgc fbc nav show-nav' : 'lbgc fbc nav'},
@@ -916,7 +933,7 @@ object-assign
               {
                 className: 'pointer',
                 onClick: () => {
-                  t({type: 'search', searchQuery: ''});
+                  n({type: 'search', searchQuery: ''}), t();
                 },
               },
               'All',
@@ -936,7 +953,7 @@ object-assign
                   className: 'pointer',
                   key: e,
                   onClick: () => {
-                    t({type: 'search', searchQuery: e});
+                    n({type: 'search', searchQuery: e}), t();
                   },
                 },
                 e,
@@ -1164,16 +1181,22 @@ object-assign
         return o.a.createElement(
           'section',
           {className: 'all-vids'},
-          t.displayedVideos.length > 0 &&
-            o.a.createElement(i.a, {
-              vidObj: t.displayedVideos[n],
-              key: 'MAINVID',
-            }),
+          o.a.createElement(
+            'div',
+            {className: 'main-vid'},
+            t.displayedVideos.length > 0 &&
+              o.a.createElement(i.a, {
+                vidObj: t.displayedVideos[n],
+                key: 'MAINVID',
+              }),
+          ),
           o.a.createElement(
             'h3',
             {className: 'current-displayed'},
             '' === t.filter ? 'All' : t.filter,
-            ' Videos',
+            ' Videos (',
+            t.displayedVideos.length,
+            ')',
           ),
           o.a.createElement(
             'ul',
@@ -1239,14 +1262,19 @@ object-assign
             o.a.createElement(
               'div',
               {className: 'fbc vid-info-container'},
-              o.a.createElement('iframe', {
-                src: e.url + '?showinfo=0',
-                className: 'main-src',
-                frameBorder: '0',
-                allow:
-                  'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
-                allowFullScreen: !0,
-              }),
+              o.a.createElement(
+                'div',
+                {className: 'main-src'},
+                o.a.createElement('iframe', {
+                  src: e.url + '?showinfo=0',
+                  frameBorder: '0',
+                  width: '100%',
+                  height: '100%',
+                  allow:
+                    'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
+                  allowFullScreen: !0,
+                }),
+              ),
               o.a.createElement(
                 'div',
                 {className: 'fbc vid-info'},
@@ -1310,10 +1338,10 @@ object-assign
       'undefined' != typeof reactHotLoaderGlobal &&
         reactHotLoaderGlobal.default.signature;
       const i = ({vidObj: e, setMainVid: t, pos: n}) => {
-          let r = `${e.title.substring(0, 25)} ...`;
+          let r = `${e.title.substring(0, 33)} ...`;
           return o.a.createElement(
             'li',
-            {className: 'vid-thumb'},
+            {className: 'fbc vid-thumb'},
             o.a.createElement('span', {
               className: 'cover-link pointer',
               onClick: () => {
@@ -1328,11 +1356,15 @@ object-assign
                 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
               allowFullScreen: !0,
             }),
-            o.a.createElement(l.a, {
-              classname: 'thumb-icon',
-              category: e.category,
-            }),
-            o.a.createElement('h5', {className: 'thumb-title'}, r),
+            o.a.createElement(
+              'div',
+              {className: 'fbr thumb-info'},
+              o.a.createElement(l.a, {
+                classname: 'thumb-icon',
+                category: e.category,
+              }),
+              o.a.createElement('h5', {className: 'thumb-title'}, r),
+            ),
           );
         },
         u = i;
@@ -1524,7 +1556,7 @@ object-assign
               'datalist',
               {id: 'categories'},
               o.a.createElement('option', {value: 'AMA'}),
-              o.a.createElement('option', {valuse: 'Tutorial'}),
+              o.a.createElement('option', {value: 'Tutorial'}),
               o.a.createElement('option', {value: 'Project'}),
               o.a.createElement('option', {value: 'Meet The Dev'}),
               o.a.createElement('option', {value: 'Visualization'}),
@@ -8847,7 +8879,7 @@ object-assign
     (t = e.exports = n(4)(!1)).i(n(5), ''),
       t.push([
         e.i,
-        'p {\n  text-indent: 0.5em;\n}\n\n.vid-tile {\n  position: relative;\n  width: 100%;\n  max-width: 900px;\n  margin: 2em auto;\n}\n\n.main-src {\n  width: 300px;\n  height: 169px;\n  margin: 2.5em 1em;\n}\n\n.vid-src {\n  width: 200px;\n  margin-top: 0.2em;\n}\n\n.fa-2x {\n  padding: 0.1em;\n  border-radius: 20%;\n  background-color: var(--color-ltheme);\n}\n\n.vid-info {\n  position: relative;\n  align-items: flex-start;\n  justify-content: flex-start;\n  width: 80%;\n  max-width: 400px;\n  height: 260px;\n}\n\n.vid-title {\n  max-width: 100%;\n  margin: 0 0 0 1em;\n  font-size: 1em;\n}\n\n.main-icon {\n  align-self: flex-end;\n  width: 100%;\n}\n\n.vid-desc {\n  width: 100%;\n  font-size: 1.1em;\n}\n\n.vid-tags {\n  width: 100%;\n  margin: 1.2em auto;\n}\n\n.vid-thumb {\n  position: relative;\n  width: 200px;\n  height: 160px;\n  margin: 1em;\n}\n\n.thumb-icon {\n  position: absolute;\n  bottom: 6px;\n  right: 0;\n  z-index: 3;\n}\n\n.cover-link {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 5;\n}\n\n@media only screen and (min-width: 900px) {\n  .vid-title {\n    font-size: 1.5em;\n  }\n\n  .main-src {\n    width: 450px;\n    height: 253px;\n  }\n\n  .vid-info {\n    align-items: flex-start;\n    justify-content: flex-start;\n    width: 100%;\n    max-width: 400px;\n    height: 260px;\n  }\n}\n',
+        'p {\n  text-indent: 0.5em;\n}\n\n.vid-tile {\n  position: relative;\n  width: 100%;\n  margin: 1em auto;\n}\n\n.vid-info-container {\n  height: 200px;\n}\n\n.main-src {\n  width: 100%;\n  margin: 1em 0;\n}\n\n.fa-3x {\n  padding: 0.1em;\n  border-radius: 20%;\n  background-color: var(--color-ltheme);\n}\n\n.vid-info {\n  position: relative;\n  align-items: flex-start;\n  justify-content: flex-start;\n  width: 80%;\n  max-width: 400px;\n  height: 80px;\n}\n\n.vid-title {\n  max-width: 100%;\n  margin: 0 0 20px 10px;\n  font-size: 1.1em;\n}\n\n.main-icon {\n  align-self: flex-end;\n  width: 100%;\n}\n\n.vid-desc {\n  width: 100%;\n  margin-bottom: 0.5em;\n  font-size: 1em;\n  font-weight: 200;\n  text-indent: 0;\n}\n\n.vid-tags {\n  width: 100%;\n  margin: 0.2em auto;\n}\n\n.vid-thumb {\n  position: relative;\n  width: 90%;\n  height: 250px;\n  margin: 0 0 2em 0;\n}\n\n.cover-link {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 5;\n}\n\n.vid-src {\n  width: 100%;\n  margin: 0.2em auto;\n}\n\n.thumb-info {\n  height: 40px;\n}\n\n.thumb-icon {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  font-size: 10px;\n}\n\n.thumb-title {\n  padding-left: 12px;\n  margin: 0;\n  font-size: 0.9em;\n}\n\n@media only screen and (min-width: 600px) {\n  .vid-info-container {\n    height: 300px;\n  }\n\n  .main-src {\n    width: 400px;\n    height: 250px;\n  }\n\n  .vid-thumb {\n    width: 75%;\n  }\n}\n\n@media only screen and (min-width: 750px) {\n  .vid-info-container {\n    height: 300px;\n  }\n\n  .vid-title {\n    font-size: 1.2em;\n  }\n\n  .main-src {\n    width: 400px;\n    height: 250px;\n  }\n\n  .vid-thumb {\n    width: 200px;\n    padding: 0 10px;\n  }\n\n  .thumb-icon {\n    position: relative;\n  }\n}\n\n@media only screen and (min-width: 900px) {\n  .vid-info-container {\n    flex-flow: row nowrap;\n    width: 100%;\n  }\n\n  .vid-title {\n    font-size: 1.5em;\n  }\n\n  .main-src {\n    width: 400px;\n    height: 281px;\n    margin-left: 0.5em;\n  }\n\n  .vid-info {\n    width: 350px;\n    height: 280px;\n    padding: 10px;\n  }\n\n  .vid-desc {\n    font-size: 1.3em;\n    text-indent: 5px;\n  }\n}\n',
         '',
       ]);
   },
@@ -8894,7 +8926,7 @@ object-assign
     (t = e.exports = n(4)(!1)).i(n(5), ''),
       t.push([
         e.i,
-        '.all-vids {\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  width: 100%;\n  min-height: calc(100vh - 150px);\n  overflow: scroll;\n}\n\n.vid-info-container {\n  height: 300px;\n}\n\n.thumbs {\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: flex-start;\n  align-items: center;\n  width: 100%;\n  max-width: 1000px;\n  margin: auto;\n  list-style-type: none;\n}\n\n.fa-2x {\n  color: #000;\n}\n\n.current-displayed {\n  padding: 1em 0 0 1em;\n  border-top: 1px dashed var(--color-dblue);\n}\n\n/* Search Error */\n.search-error {\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  width: 100%;\n}\n\n@media only screen and (min-width: 900px) {\n  .vid-info-container {\n    flex-flow: row nowrap;\n    height: 300px;\n  }\n}\n',
+        '.all-vids {\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  width: 100%;\n  min-height: calc(100vh - 150px);\n  overflow: scroll;\n}\n\n.main-vid {\n  width: 100%;\n  height: 310px;\n}\n\n.thumbs {\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  display: flex;\n  flex-flow: column nowrap;\n  justify-content: flex-start;\n  align-items: center;\n  width: 100%;\n  height: calc(100vh - 460px);\n  list-style-type: none;\n  overflow: scroll;\n}\n\n.fa-2x {\n  color: #000;\n}\n\n.current-displayed {\n  height: 25px;\n  padding: 0.2em 0 0.2em 0.2em;\n  margin: 0;\n  font-weight: 200;\n  border-top: 1px dashed var(--color-dblue);\n}\n\n/* Search Error */\n.search-error {\n  grid-column: c1 / c2;\n  grid-row: r2 / r3;\n  width: 100%;\n}\n\n@media only screen and (min-width: 600px) {\n  .main-vid {\n    height: 400px;\n  }\n\n  .thumbs {\n    height: calc(100vh - 550px);\n  }\n}\n\n@media only screen and (min-width: 750px) {\n  .thumbs {\n    flex-flow: row wrap;\n    justify-content: space-evenly;\n    align-items: flex-start;\n  }\n}\n\n@media only screen and (min-width: 900px) {\n}\n',
         '',
       ]);
   },

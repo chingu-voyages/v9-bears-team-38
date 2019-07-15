@@ -33,6 +33,11 @@ class App extends Component {
       : this.setState({showNav: true});
   };
 
+  //Closes Nav
+  handleCloseNav = () => {
+    this.setState({showNav: false});
+  };
+
   //Toggles showing the Login form
   handleShowLogin = () => {
     !!this.state.showLogin
@@ -58,7 +63,10 @@ class App extends Component {
           />
           <h1 className='b pm0 tc main-title'>Chingu Learning Portal</h1>
           <div className={!!this.state.showTray ? 'tray show-tray' : 'tray'}>
-            <i className='fas fa-chevron-left' onClick={this.handleShowTray} />
+            <i
+              className='fas fa-grip-lines-vertical'
+              onClick={this.handleShowTray}
+            />
             <Search />
             <p className='tc pointer tp1' onClick={this.handleShowNav}>
               Playlists
@@ -74,7 +82,7 @@ class App extends Component {
             )}
           </div>
         </header>
-        <Nav showNav={this.state.showNav} />
+        <Nav showNav={this.state.showNav} closeNav={this.handleCloseNav} />
         <Login
           showLogin={this.state.showLogin}
           handleShowLogin={this.handleShowLogin}
@@ -84,8 +92,11 @@ class App extends Component {
         )}
         <main className='fbc'>
           {!this.state.showAdmin && <DisplayedVids />}
+          <aside className='scroll-indicator'>
+            <p className='pm0'>scroll</p>
+            <i className='fas fa-chevron-down' />
+          </aside>
         </main>
-        <footer />
       </div>
     );
   }
