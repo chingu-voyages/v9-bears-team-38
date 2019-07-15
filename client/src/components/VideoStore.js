@@ -61,7 +61,11 @@ const VideoContextProvider = props => {
       case 'search': {
         const match = new RegExp(escapeRegExp(action.searchQuery), 'i');
         const searchResults = state.allVideos.filter(video => {
-          if (match.test(video.title) || match.test(video.tags) === true) {
+          if (
+            match.test(video.title) ||
+            match.test(video.category) ||
+            match.test(video.tags) === true
+          ) {
             return true;
           }
         });

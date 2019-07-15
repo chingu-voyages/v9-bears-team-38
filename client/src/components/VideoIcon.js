@@ -33,7 +33,7 @@ const VideoIcon = ({category, classname}) => {
 
   return (
     <span className={`fbc pm0 ${classname}`}>
-      <i className={`${switchOutput} fa-2x`} />
+      <i className={`${switchOutput} fa-3x`} />
     </span>
   );
 };

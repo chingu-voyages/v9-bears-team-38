@@ -87,7 +87,7 @@ a:active {
   position: relative;
   display: grid;
   grid-template-columns: [c1] 1fr [c2];
-  grid-template-rows: [r1] 100px [r2] 1fr [r3] 50px [r4];
+  grid-template-rows: [r1] 100px [r2] 1fr [r3];
   grid-gap: 0;
   max-width: 100vw;
   min-height: 100%;
@@ -134,7 +134,7 @@ a:active {
   transition-delay: 300ms;
 }
 
-.fa-chevron-left,
+.fa-grip-lines-vertical,
 .fa-search {
   position: absolute;
   left: 3px;
@@ -268,9 +268,20 @@ button {
 main {
   grid-column: c1 / c2;
   grid-row: r2 / r3;
-  max-width: 100%;
+  width: 100%;
   height: 100%;
   background-color: var(--color-lgray);
+}
+
+.scroll-indicator {
+  position: fixed;
+  bottom: 5px;
+  right: 8px;
+  width: 60px;
+  padding: 0;
+  margin: 0;
+  color: var(--color-gray);
+  text-align: right;
 }
 
 .most-recent {
@@ -286,11 +297,6 @@ main {
   background-color: #fff;
 }
 
-footer {
-  grid-column: c1 / c2;
-  grid-row: r3 / r4;
-}
-
 @media only screen and (min-width: 600px) {
   #app-container {
     display: grid;
@@ -304,7 +310,7 @@ footer {
     grid-column: c1 / c3;
     grid-row: r1 / r2;
     display: grid;
-    grid-template-columns: [hc1] 1fr [hc2] 1.5fr [hc3] 1fr [hc4];
+    grid-template-columns: [hc1] 0.5fr [hc2] 0.75fr [hc3] 1fr [hc4];
     grid-template-rows: [hr1] 50px [hr2] 50px [hr3];
     width: 100%;
     height: 100px;
@@ -312,13 +318,13 @@ footer {
   }
 
   .logo {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
 
   .main-title {
     margin-left: 0.3em;
-    font-size: 2em;
+    font-size: 1.2em;
   }
 
   .tray {
@@ -382,8 +388,36 @@ footer {
   }
 }
 
-@media only screen and (max-width: 899px) {
-  .mobile-hidden {
-    display: none;
+@media only screen and (min-width: 750px) {
+  .header {
+    grid-template-columns: [hc1] 0.75fr [hc2] 1fr [hc3] 1fr [hc4];
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .main-title {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #app-container {
+    grid-template-columns: [c1] 1fr [c2] 4fr [c3];
+  }
+
+  .header {
+    grid-template-columns: [hc1] 0.5fr [hc2] 1.2fr [hc3] 1fr [hc4];
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .main-title {
+    font-size: 1.8em;
   }
 }
