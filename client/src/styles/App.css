@@ -310,7 +310,7 @@ main {
     grid-column: c1 / c3;
     grid-row: r1 / r2;
     display: grid;
-    grid-template-columns: [hc1] 1fr [hc2] 1.5fr [hc3] 1fr [hc4];
+    grid-template-columns: [hc1] 0.5fr [hc2] 0.75fr [hc3] 1fr [hc4];
     grid-template-rows: [hr1] 50px [hr2] 50px [hr3];
     width: 100%;
     height: 100px;
@@ -318,13 +318,13 @@ main {
   }
 
   .logo {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
   }
 
   .main-title {
     margin-left: 0.3em;
-    font-size: 2em;
+    font-size: 1.2em;
   }
 
   .tray {
@@ -388,8 +388,36 @@ main {
   }
 }
 
-@media only screen and (max-width: 899px) {
-  .mobile-hidden {
-    display: none;
+@media only screen and (min-width: 750px) {
+  .header {
+    grid-template-columns: [hc1] 0.75fr [hc2] 1fr [hc3] 1fr [hc4];
+  }
+
+  .logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .main-title {
+    font-size: 1.3em;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #app-container {
+    grid-template-columns: [c1] 1fr [c2] 4fr [c3];
+  }
+
+  .header {
+    grid-template-columns: [hc1] 0.5fr [hc2] 1.2fr [hc3] 1fr [hc4];
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .main-title {
+    font-size: 1.8em;
   }
 }

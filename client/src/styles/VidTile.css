@@ -117,6 +117,10 @@ p {
     height: 300px;
   }
 
+  .vid-title {
+    font-size: 1.2em;
+  }
+
   .main-src {
     width: 400px;
     height: 250px;
@@ -131,7 +135,7 @@ p {
 @media only screen and (min-width: 900px) {
   .vid-info-container {
     flex-flow: row nowrap;
-    height: 300px;
+    width: 100%;
   }
 
   .vid-title {
@@ -139,15 +143,18 @@ p {
   }
 
   .main-src {
-    width: 450px;
-    height: 253px;
+    width: 400px;
+    height: 281px;
   }
 
   .vid-info {
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 400px;
-    height: 260px;
+    width: 350px;
+    height: 280px;
+    padding: 10px;
+  }
+
+  .vid-desc {
+    font-size: 1.3em;
+    text-indent: 5px;
   }
 }
