@@ -8,24 +8,15 @@ import SearchError from './SearchError.js';
 
 import '../styles/DisplayedVids.css';
 
-const DisplayedVids = props => {
+const DisplayedVids = ({currentVid, setCurrentVid}) => {
   //Destructure state from Context to get videos from Store
   let {state} = useContext(VideoContext);
-
-  const [currentPosition, setCurrentPosition] = useState(0);
-
-  const setMainVid = pos => {
-    setCurrentPosition(pos);
-  };
 
   return (
     <section className='all-vids'>
       <div className='main-vid'>
         {state.displayedVideos.length > 0 && (
-          <VidTile
-            vidObj={state.displayedVideos[currentPosition]}
-            key='MAINVID'
-          />
+          <VidTile vidObj={state.displayedVideos[currentVid]} key='MAINVID' />
         )}
       </div>
       <h3 className='current-displayed'>
@@ -37,7 +28,7 @@ const DisplayedVids = props => {
           state.displayedVideos.map((vid, i) => {
             return (
               <VidThumb
-                setMainVid={setMainVid}
+                setMainVid={setCurrentVid}
                 vidObj={vid}
                 pos={i}
                 key={vid.title}
