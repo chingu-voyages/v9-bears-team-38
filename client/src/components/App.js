@@ -85,7 +85,6 @@ class App extends Component {
         <main className='fbc'>
           {!this.state.showAdmin && <DisplayedVids />}
         </main>
-        <footer />
       </div>
     );
   }

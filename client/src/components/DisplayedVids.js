@@ -20,12 +20,14 @@ const DisplayedVids = props => {
 
   return (
     <section className='all-vids'>
-      {state.displayedVideos.length > 0 && (
-        <VidTile
-          vidObj={state.displayedVideos[currentPosition]}
-          key='MAINVID'
-        />
-      )}
+      <div className='main-vid'>
+        {state.displayedVideos.length > 0 && (
+          <VidTile
+            vidObj={state.displayedVideos[currentPosition]}
+            key='MAINVID'
+          />
+        )}
+      </div>
       <h3 className='current-displayed'>
         {state.filter === '' ? 'All' : state.filter} Videos
       </h3>
