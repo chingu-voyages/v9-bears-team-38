@@ -21,7 +21,6 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  max-width: 1000px;
   height: calc(100vh - 460px);
   list-style-type: none;
   overflow: scroll;

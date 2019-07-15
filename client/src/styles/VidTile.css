@@ -127,6 +127,7 @@ p {
 
   .vid-thumb {
     width: 200px;
+    padding: 0 10px;
   }
 
   .thumb-icon {
