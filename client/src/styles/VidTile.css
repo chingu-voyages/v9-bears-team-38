@@ -12,7 +12,8 @@ p {
 }
 
 .main-src {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 169px;
   margin: 2.5em 1em;
 }
@@ -20,6 +21,7 @@ p {
 .vid-src {
   width: 200px;
   margin-top: 0.2em;
+  height: 114px;
 }
 
 .fa-2x {
@@ -39,7 +41,7 @@ p {
 
 .vid-title {
   max-width: 100%;
-  margin: 0 0 0 1em;
+  margin: 0 0 20px 1em;
   font-size: 1em;
 }
 
@@ -51,6 +53,7 @@ p {
 .vid-desc {
   width: 100%;
   font-size: 1.1em;
+  text-indent: 0;
 }
 
 .vid-tags {
@@ -68,8 +71,9 @@ p {
 .thumb-icon {
   position: absolute;
   bottom: 6px;
-  right: 0;
+  left: 0;
   z-index: 3;
+  font-size: 10px;
 }
 
 .cover-link {
@@ -79,6 +83,11 @@ p {
   width: 100%;
   height: 100%;
   z-index: 5;
+}
+
+.thumb-title {
+  padding-left: 35px;
+  margin: 5px 0 0 0;
 }
 
 @media only screen and (min-width: 900px) {
