@@ -739,6 +739,7 @@ object-assign
               showLogin: !1,
               showAdmin: !1,
               searchQuery: '',
+              currentVid: 0,
             }),
             _defineProperty(this, 'handleShowTray', () => {
               this.state.showTray
@@ -762,6 +763,9 @@ object-assign
               this.state.showAdmin
                 ? this.setState({showAdmin: !1})
                 : this.setState({showAdmin: !0});
+            }),
+            _defineProperty(this, 'handleMainVidToZero', e => {
+              this.setState({currentVid: e});
             });
         }
         render() {
@@ -824,7 +828,11 @@ object-assign
             ),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
               _Nav_js__WEBPACK_IMPORTED_MODULE_3__.a,
-              {showNav: this.state.showNav, closeNav: this.handleCloseNav},
+              {
+                showNav: this.state.showNav,
+                closeNav: this.handleCloseNav,
+                setCurrentVid: this.handleMainVidToZero,
+              },
             ),
             react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
               _Login_js__WEBPACK_IMPORTED_MODULE_5__.a,
@@ -844,7 +852,10 @@ object-assign
               !this.state.showAdmin &&
                 react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
                   _DisplayedVids_js__WEBPACK_IMPORTED_MODULE_6__.a,
-                  null,
+                  {
+                    currentVid: this.state.currentVid,
+                    setCurrentVid: this.handleMainVidToZero,
+                  },
                 ),
               react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(
                 'aside',
@@ -919,8 +930,8 @@ object-assign
           : function(e) {
               return e;
             };
-      const u = ({showNav: e, closeNav: t}) => {
-        const {dispatch: n} = Object(a.useContext)(l.a);
+      const u = ({showNav: e, closeNav: t, setCurrentVid: n}) => {
+        const {dispatch: r} = Object(a.useContext)(l.a);
         return o.a.createElement(
           'nav',
           {className: e ? 'lbgc fbc nav show-nav' : 'lbgc fbc nav'},
@@ -933,7 +944,7 @@ object-assign
               {
                 className: 'pointer',
                 onClick: () => {
-                  n({type: 'search', searchQuery: ''}), t();
+                  r({type: 'search', searchQuery: ''}), n(0), t();
                 },
               },
               'All',
@@ -953,7 +964,7 @@ object-assign
                   className: 'pointer',
                   key: e,
                   onClick: () => {
-                    n({type: 'search', searchQuery: e}), t();
+                    r({type: 'search', searchQuery: e}), n(0), t();
                   },
                 },
                 e,
@@ -1172,41 +1183,37 @@ object-assign
           : function(e) {
               return e;
             };
-      const d = e => {
-        let {state: t} = Object(a.useContext)(l.a);
-        const [n, r] = Object(a.useState)(0),
-          s = e => {
-            r(e);
-          };
+      const d = ({currentVid: e, setCurrentVid: t}) => {
+        let {state: n} = Object(a.useContext)(l.a);
         return o.a.createElement(
           'section',
           {className: 'all-vids'},
           o.a.createElement(
             'div',
             {className: 'main-vid'},
-            t.displayedVideos.length > 0 &&
+            n.displayedVideos.length > 0 &&
               o.a.createElement(i.a, {
-                vidObj: t.displayedVideos[n],
+                vidObj: n.displayedVideos[e],
                 key: 'MAINVID',
               }),
           ),
           o.a.createElement(
             'h3',
             {className: 'current-displayed'},
-            '' === t.filter ? 'All' : t.filter,
+            '' === n.filter ? 'All' : n.filter,
             ' Videos (',
-            t.displayedVideos.length,
+            n.displayedVideos.length,
             ')',
           ),
           o.a.createElement(
             'ul',
             {className: 'fbr pm0 thumbs'},
-            t.displayedVideos.length > 0
-              ? t.displayedVideos.map((e, t) =>
+            n.displayedVideos.length > 0
+              ? n.displayedVideos.map((e, n) =>
                   o.a.createElement(u.a, {
-                    setMainVid: s,
+                    setMainVid: t,
                     vidObj: e,
-                    pos: t,
+                    pos: n,
                     key: e.title,
                   }),
                 )
@@ -1214,10 +1221,7 @@ object-assign
           ),
         );
       };
-      s(
-        d,
-        'useContext{{state}}\nuseState{[currentPosition, setCurrentPosition](0)}',
-      );
+      s(d, 'useContext{{state}}');
       const f = d;
       var p, m;
       (t.a = f),
@@ -2041,8 +2045,8 @@ object-assign
         },
       },
       F = {default: W},
-      B = (F && W) || F;
-    e.exports = B.default || B;
+      V = (F && W) || F;
+    e.exports = V.default || V;
   },
   function(e, t, n) {
     'use strict';
@@ -2317,10 +2321,10 @@ object-assign
         ((n._dispatchListeners = T(n._dispatchListeners, t)),
         (n._dispatchInstances = T(n._dispatchInstances, e)));
     }
-    function B(e) {
+    function V(e) {
       e && e.dispatchConfig.registrationName && F(e._targetInst, null, e);
     }
-    function V(e) {
+    function B(e) {
       C(e, W);
     }
     var G = !(
@@ -2590,7 +2594,7 @@ object-assign
                       (ke = !0))),
                 (a = fe.getPooled(a, t, n, r)),
                 o ? (a.data = o) : null !== (o = Ee(n)) && (a.data = o),
-                V(a),
+                B(a),
                 (o = a))
               : (o = null),
             (e = ge
@@ -2629,7 +2633,7 @@ object-assign
                       return null;
                   }
                 })(e, n))
-              ? (((t = pe.getPooled(_e.beforeInput, t, n, r)).data = e), V(t))
+              ? (((t = pe.getPooled(_e.beforeInput, t, n, r)).data = e), B(t))
               : (t = null),
             null === o ? t : null === t ? o : [o, t]
           );
@@ -2759,7 +2763,7 @@ object-assign
           }
         })(e));
     }
-    function Be(e) {
+    function Ve(e) {
       if (!e) return !1;
       var t = e._valueTracker;
       if (!t) return !0;
@@ -2770,9 +2774,9 @@ object-assign
         (e = r) !== n && (t.setValue(e), !0)
       );
     }
-    var Ve = r.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    Ve.hasOwnProperty('ReactCurrentDispatcher') ||
-      (Ve.ReactCurrentDispatcher = {current: null});
+    var Be = r.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    Be.hasOwnProperty('ReactCurrentDispatcher') ||
+      (Be.ReactCurrentDispatcher = {current: null});
     var Ge = /^(.*)[\\\/]/,
       Ke = 'function' == typeof Symbol && Symbol.for,
       qe = Ke ? Symbol.for('react.element') : 60103,
@@ -3103,7 +3107,7 @@ object-assign
     };
     function Ct(e, t, n) {
       return (
-        ((e = ue.getPooled(Tt.change, e, t, n)).type = 'change'), Oe(n), V(e), e
+        ((e = ue.getPooled(Tt.change, e, t, n)).type = 'change'), Oe(n), B(e), e
       );
     }
     var St = null,
@@ -3112,7 +3116,7 @@ object-assign
       M(e);
     }
     function Ot(e) {
-      if (Be(A(e))) return e;
+      if (Ve(A(e))) return e;
     }
     function Mt(e, t) {
       if ('change' === e) return t;
@@ -3185,10 +3189,10 @@ object-assign
         ? t.getModifierState(e)
         : !!(e = Wt[e]) && !!t[e];
     }
-    function Bt() {
+    function Vt() {
       return Ft;
     }
-    var Vt = 0,
+    var Bt = 0,
       Gt = 0,
       Kt = !1,
       qt = !1,
@@ -3203,7 +3207,7 @@ object-assign
         shiftKey: null,
         altKey: null,
         metaKey: null,
-        getModifierState: Bt,
+        getModifierState: Vt,
         button: null,
         buttons: null,
         relatedTarget: function(e) {
@@ -3214,9 +3218,9 @@ object-assign
         },
         movementX: function(e) {
           if ('movementX' in e) return e.movementX;
-          var t = Vt;
+          var t = Bt;
           return (
-            (Vt = e.screenX),
+            (Bt = e.screenX),
             Kt ? ('mousemove' === e.type ? e.screenX - t : 0) : ((Kt = !0), 0)
           );
         },
@@ -3527,7 +3531,7 @@ object-assign
         metaKey: null,
         repeat: null,
         locale: null,
-        getModifierState: Bt,
+        getModifierState: Vt,
         charCode: function(e) {
           return 'keypress' === e.type ? un(e) : 0;
         },
@@ -3551,7 +3555,7 @@ object-assign
         metaKey: null,
         ctrlKey: null,
         shiftKey: null,
-        getModifierState: Bt,
+        getModifierState: Vt,
       }),
       mn = ue.extend({
         propertyName: null,
@@ -3753,7 +3757,7 @@ object-assign
             default:
               e = ue;
           }
-          return V((t = e.getPooled(a, t, n, r))), t;
+          return B((t = e.getPooled(a, t, n, r))), t;
         },
       },
       wn = _n.isInteractiveTopLevelEventType,
@@ -3978,12 +3982,12 @@ object-assign
       },
       Wn = null,
       Fn = null,
-      Bn = null,
-      Vn = !1;
+      Vn = null,
+      Bn = !1;
     function Gn(e, t) {
       var n =
         t.window === t ? t.document : 9 === t.nodeType ? t : t.ownerDocument;
-      return Vn || null == Wn || Wn !== Dn(n)
+      return Bn || null == Wn || Wn !== Dn(n)
         ? null
         : ('selectionStart' in (n = Wn) && An(n)
             ? (n = {start: n.selectionStart, end: n.selectionEnd})
@@ -3996,12 +4000,12 @@ object-assign
                 focusNode: n.focusNode,
                 focusOffset: n.focusOffset,
               }),
-          Bn && en(Bn, n)
+          Vn && en(Vn, n)
             ? null
-            : ((Bn = n),
+            : ((Vn = n),
               ((e = ue.getPooled(Hn.select, Fn, e, t)).type = 'select'),
               (e.target = Wn),
-              V(e),
+              B(e),
               e));
     }
     var Kn = {
@@ -4032,18 +4036,18 @@ object-assign
         switch (((o = t ? A(t) : window), e)) {
           case 'focus':
             (Ie(o) || 'true' === o.contentEditable) &&
-              ((Wn = o), (Fn = t), (Bn = null));
+              ((Wn = o), (Fn = t), (Vn = null));
             break;
           case 'blur':
-            Bn = Fn = Wn = null;
+            Vn = Fn = Wn = null;
             break;
           case 'mousedown':
-            Vn = !0;
+            Bn = !0;
             break;
           case 'contextmenu':
           case 'mouseup':
           case 'dragend':
-            return (Vn = !1), Gn(n, r);
+            return (Bn = !1), Gn(n, r);
           case 'selectionchange':
             if (zn) break;
           case 'keydown':
@@ -4448,14 +4452,14 @@ object-assign
     }
     var Wr = null,
       Fr = null;
-    function Br(e) {
+    function Vr(e) {
       return function(t) {
         try {
           return e(t);
         } catch (e) {}
       };
     }
-    function Vr(e, t, n, r) {
+    function Br(e, t, n, r) {
       (this.tag = e),
         (this.key = n),
         (this.sibling = this.child = this.return = this.stateNode = this.type = this.elementType = null),
@@ -4470,7 +4474,7 @@ object-assign
         (this.alternate = null);
     }
     function Gr(e, t, n, r) {
-      return new Vr(e, t, n, r);
+      return new Br(e, t, n, r);
     }
     function Kr(e) {
       return !(!(e = e.prototype) || !e.isReactComponent);
@@ -4652,7 +4656,7 @@ object-assign
           a = Zo((r = Ql(r, e)));
         (a.payload = t),
           null != n && (a.callback = n),
-          Bl(),
+          Vl(),
           Xo(e, a),
           Xl(e, r);
       },
@@ -4660,10 +4664,10 @@ object-assign
         e = e._reactInternalFiber;
         var r = xi(),
           a = Zo((r = Ql(r, e)));
-        (a.tag = Vo),
+        (a.tag = Bo),
           (a.payload = t),
           null != n && (a.callback = n),
-          Bl(),
+          Vl(),
           Xo(e, a),
           Xl(e, r);
       },
@@ -4671,7 +4675,7 @@ object-assign
         e = e._reactInternalFiber;
         var n = xi(),
           r = Zo((n = Ql(n, e)));
-        (r.tag = Go), null != t && (r.callback = t), Bl(), Xo(e, r), Xl(e, n);
+        (r.tag = Go), null != t && (r.callback = t), Vl(), Xo(e, r), Xl(e, n);
       },
     };
     function ia(e, t, n, r, a, o, l) {
@@ -5123,7 +5127,7 @@ object-assign
       Ma = 32,
       Na = 64,
       Da = 128,
-      Ua = Ve.ReactCurrentDispatcher,
+      Ua = Be.ReactCurrentDispatcher,
       Ra = 0,
       ja = null,
       Aa = null,
@@ -5132,8 +5136,8 @@ object-assign
       Ha = null,
       Wa = null,
       Fa = 0,
-      Ba = null,
-      Va = 0,
+      Va = null,
+      Ba = 0,
       Ga = !1,
       Ka = null,
       qa = 0;
@@ -5160,7 +5164,7 @@ object-assign
             (qa += 1),
             (Ia = null !== e ? e.memoizedState : null),
             (Wa = za),
-            (Ba = Ha = Aa = null),
+            (Va = Ha = Aa = null),
             (Ua.current = so),
             (t = n(r, a));
         } while (Ga);
@@ -5170,14 +5174,14 @@ object-assign
         (Ua.current = uo),
         ((e = ja).memoizedState = za),
         (e.expirationTime = Fa),
-        (e.updateQueue = Ba),
-        (e.effectTag |= Va),
+        (e.updateQueue = Va),
+        (e.effectTag |= Ba),
         (e = null !== Aa && null !== Aa.next),
         (Ra = 0),
         (Wa = Ha = za = Ia = Aa = ja = null),
         (Fa = 0),
-        (Ba = null),
-        (Va = 0),
+        (Va = null),
+        (Ba = 0),
         e && l('300'),
         t
       );
@@ -5187,8 +5191,8 @@ object-assign
         (Ra = 0),
         (Wa = Ha = za = Ia = Aa = ja = null),
         (Fa = 0),
-        (Ba = null),
-        (Va = 0),
+        (Va = null),
+        (Ba = 0),
         (Ga = !1),
         (Ka = null),
         (qa = 0);
@@ -5278,17 +5282,17 @@ object-assign
     function no(e, t, n, r) {
       return (
         (e = {tag: e, create: t, destroy: n, deps: r, next: null}),
-        null === Ba
-          ? ((Ba = {lastEffect: null}).lastEffect = e.next = e)
-          : null === (t = Ba.lastEffect)
-          ? (Ba.lastEffect = e.next = e)
-          : ((n = t.next), (t.next = e), (e.next = n), (Ba.lastEffect = e)),
+        null === Va
+          ? ((Va = {lastEffect: null}).lastEffect = e.next = e)
+          : null === (t = Va.lastEffect)
+          ? (Va.lastEffect = e.next = e)
+          : ((n = t.next), (t.next = e), (e.next = n), (Va.lastEffect = e)),
         e
       );
     }
     function ro(e, t, n, r) {
       var a = Xa();
-      (Va |= e), (a.memoizedState = no(t, n, void 0, void 0 === r ? null : r));
+      (Ba |= e), (a.memoizedState = no(t, n, void 0, void 0 === r ? null : r));
     }
     function ao(e, t, n, r) {
       var a = Ja();
@@ -5299,7 +5303,7 @@ object-assign
         if (((o = l.destroy), null !== r && Qa(r, l.deps)))
           return void no(Ca, n, o, r);
       }
-      (Va |= e), (a.memoizedState = no(t, n, o, r));
+      (Ba |= e), (a.memoizedState = no(t, n, o, r));
     }
     function oo(e, t) {
       return 'function' == typeof t
@@ -5339,7 +5343,7 @@ object-assign
           t.next = e;
         }
       else {
-        Bl();
+        Vl();
         var a = xi(),
           o = {
             expirationTime: (a = Ql(a, e)),
@@ -5554,7 +5558,7 @@ object-assign
     function _o() {
       (po = fo = null), (mo = !1);
     }
-    var wo = Ve.ReactCurrentOwner,
+    var wo = Be.ReactCurrentOwner,
       xo = !1;
     function Eo(e, t, n, r) {
       t.child = null === e ? va(t, null, n, r) : ha(t, e.child, n, r);
@@ -6178,8 +6182,8 @@ object-assign
         e._currentValue
       );
     }
-    var Bo = 0,
-      Vo = 1,
+    var Vo = 0,
+      Bo = 1,
       Go = 2,
       Ko = 3,
       qo = !1;
@@ -6212,7 +6216,7 @@ object-assign
     function Zo(e) {
       return {
         expirationTime: e,
-        tag: Bo,
+        tag: Vo,
         payload: null,
         callback: null,
         next: null,
@@ -6261,11 +6265,11 @@ object-assign
     }
     function tl(e, t, n, r, o, l) {
       switch (n.tag) {
-        case Vo:
+        case Bo:
           return 'function' == typeof (e = n.payload) ? e.call(l, r, o) : e;
         case Ko:
           e.effectTag = (-2049 & e.effectTag) | 64;
-        case Bo:
+        case Vo:
           if (
             null ==
             (o = 'function' == typeof (e = n.payload) ? e.call(l, r, o) : e)
@@ -6870,8 +6874,8 @@ object-assign
           return null;
       }
     }
-    var kl = Ve.ReactCurrentDispatcher,
-      Tl = Ve.ReactCurrentOwner,
+    var kl = Be.ReactCurrentDispatcher,
+      Tl = Be.ReactCurrentOwner,
       Cl = 1073741822,
       Sl = !1,
       Pl = null,
@@ -7048,10 +7052,10 @@ object-assign
           (Dl = Dl.nextEffect);
       }
     }
-    function Bl() {
+    function Vl() {
       null !== jl && xr(jl), null !== Al && Al();
     }
-    function Vl(e, t) {
+    function Bl(e, t) {
       (Ul = Sl = !0), e.current === t && l('177');
       var n = e.pendingCommitExpirationTime;
       0 === n && l('261'), (e.pendingCommitExpirationTime = 0);
@@ -7556,7 +7560,7 @@ object-assign
       );
     }
     function ql(e, t) {
-      Sl && l('243'), Bl(), (Sl = !0);
+      Sl && l('243'), Vl(), (Sl = !0);
       var n = kl.current;
       kl.current = uo;
       var r = e.nextExpirationTimeToWorkOn;
@@ -8017,7 +8021,7 @@ object-assign
       (e.finishedWork = null),
         e === yi ? gi++ : ((yi = e), (gi = 0)),
         o.unstable_runWithPriority(o.unstable_ImmediatePriority, function() {
-          Vl(e, t);
+          Bl(e, t);
         });
     }
     function Ni(e) {
@@ -8095,7 +8099,7 @@ object-assign
         (t = a),
         ((a = Zo(r)).payload = {element: e}),
         null !== (t = void 0 === t ? null : t) && (a.callback = t),
-        Bl(),
+        Vl(),
         Xo(o, a),
         Xl(o, r),
         r
@@ -8162,7 +8166,7 @@ object-assign
           (8 !== e.nodeType || ' react-mount-point-unstable ' !== e.nodeValue))
       );
     }
-    function Bi(e, t, n, r, a) {
+    function Vi(e, t, n, r, a) {
       var o = n._reactRootContainer;
       if (o) {
         if ('function' == typeof a) {
@@ -8210,7 +8214,7 @@ object-assign
       }
       return Ii(o._internalRoot);
     }
-    function Vi(e, t) {
+    function Bi(e, t) {
       var n =
         2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
       return (
@@ -8246,7 +8250,7 @@ object-assign
               var r = n[t];
               if (r !== e && r.form === e.form) {
                 var a = I(r);
-                a || l('90'), Be(r), xt(r, a);
+                a || l('90'), Ve(r), xt(r, a);
               }
             }
           }
@@ -8367,7 +8371,7 @@ object-assign
         ai || 0 === ii || (Pi(ii, !1), (ii = 0));
       });
     var Gi = {
-      createPortal: Vi,
+      createPortal: Bi,
       findDOMNode: function(e) {
         if (null == e) return null;
         if (1 === e.nodeType) return e;
@@ -8381,16 +8385,16 @@ object-assign
         );
       },
       hydrate: function(e, t, n) {
-        return Fi(t) || l('200'), Bi(null, e, t, !0, n);
+        return Fi(t) || l('200'), Vi(null, e, t, !0, n);
       },
       render: function(e, t, n) {
-        return Fi(t) || l('200'), Bi(null, e, t, !1, n);
+        return Fi(t) || l('200'), Vi(null, e, t, !1, n);
       },
       unstable_renderSubtreeIntoContainer: function(e, t, n, r) {
         return (
           Fi(n) || l('200'),
           (null == e || void 0 === e._reactInternalFiber) && l('38'),
-          Bi(e, t, n, !1, r)
+          Vi(e, t, n, !1, r)
         );
       },
       unmountComponentAtNode: function(e) {
@@ -8398,7 +8402,7 @@ object-assign
           Fi(e) || l('40'),
           !!e._reactRootContainer &&
             (Ui(function() {
-              Bi(null, null, e, !1, function() {
+              Vi(null, null, e, !1, function() {
                 e._reactRootContainer = null;
               });
             }),
@@ -8406,7 +8410,7 @@ object-assign
         );
       },
       unstable_createPortal: function() {
-        return Vi.apply(void 0, arguments);
+        return Bi.apply(void 0, arguments);
       },
       unstable_batchedUpdates: Di,
       unstable_interactiveUpdates: Ri,
@@ -8442,9 +8446,9 @@ object-assign
           I,
           L.injectEventPluginsByName,
           y,
-          V,
+          B,
           function(e) {
-            C(e, B);
+            C(e, V);
           },
           Oe,
           Me,
@@ -8461,17 +8465,17 @@ object-assign
         if (t.isDisabled || !t.supportsFiber) return !0;
         try {
           var n = t.inject(e);
-          (Wr = Br(function(e) {
+          (Wr = Vr(function(e) {
             return t.onCommitFiberRoot(n, e);
           })),
-            (Fr = Br(function(e) {
+            (Fr = Vr(function(e) {
               return t.onCommitFiberUnmount(n, e);
             }));
         } catch (e) {}
       })(
         a({}, e, {
           overrideProps: null,
-          currentDispatcherRef: Ve.ReactCurrentDispatcher,
+          currentDispatcherRef: Be.ReactCurrentDispatcher,
           findHostInstanceByFiber: function(e) {
             return null === (e = rn(e)) ? null : e.stateNode;
           },
