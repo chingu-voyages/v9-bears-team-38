@@ -14,13 +14,16 @@ const VidThumb = ({vidObj, setMainVid, pos}) => {
           setMainVid(pos);
         }}
       />
-      <iframe
-        src={vidObj.url + '?showinfo=0'}
-        className='vid-src'
-        frameBorder='0'
-        allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-        allowFullScreen
-      />
+      <div className='vid-src'>
+        <iframe
+          src={vidObj.url + '?showinfo=0'}
+          frameBorder='0'
+          width='100%'
+          height='100%'
+          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+        />
+      </div>
       <div className='fbr thumb-info'>
         <VideoIcon classname='thumb-icon' category={vidObj.category} />
         <h5 className='thumb-title'>{subStringTitle}</h5>
