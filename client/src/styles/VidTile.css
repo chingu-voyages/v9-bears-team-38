@@ -7,7 +7,7 @@ p {
 .vid-tile {
   position: relative;
   width: 100%;
-  margin: 1em auto;
+  margin: 0.6em auto;
 }
 
 .vid-info-container {
@@ -37,7 +37,7 @@ p {
 
 .vid-title {
   max-width: 100%;
-  margin: 0 0 20px 10px;
+  margin: 0 0 25px 10px;
   font-size: 1.1em;
 }
 

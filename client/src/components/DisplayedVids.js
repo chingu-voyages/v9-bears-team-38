@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 
 import {VideoContext} from './VideoStore.js';
 import VidTile from './VidTile.js';
@@ -11,6 +11,12 @@ import '../styles/DisplayedVids.css';
 const DisplayedVids = ({currentVid, setCurrentVid}) => {
   //Destructure state from Context to get videos from Store
   let {state} = useContext(VideoContext);
+
+  //Scroll to top after any refresh
+  useEffect(() => {
+    document.body.scrollTop = 0; //Safari
+    document.documentElement.scrollTop = 0; //IE, Chrome, Moz
+  });
 
   return (
     <section className='all-vids'>
