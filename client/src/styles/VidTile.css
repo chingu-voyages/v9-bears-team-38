@@ -17,6 +17,7 @@ p {
 .main-src {
   width: 100%;
   margin: 1em 0;
+  box-shadow: 1px 4px 10px 1px var(--color-gray);
 }
 
 .fa-3x {
@@ -71,12 +72,13 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 3;
 }
 
 .vid-src {
   width: 100%;
   margin: 0.2em auto;
+  box-shadow: 2px 4px 10px 2px var(--color-gray);
 }
 
 .thumb-info {
