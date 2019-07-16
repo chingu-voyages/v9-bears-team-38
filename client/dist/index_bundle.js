@@ -1352,14 +1352,19 @@ object-assign
                 t(n);
               },
             }),
-            o.a.createElement('iframe', {
-              src: e.url + '?showinfo=0',
-              className: 'vid-src',
-              frameBorder: '0',
-              allow:
-                'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
-              allowFullScreen: !0,
-            }),
+            o.a.createElement(
+              'div',
+              {className: 'vid-src'},
+              o.a.createElement('iframe', {
+                src: e.url + '?showinfo=0',
+                frameBorder: '0',
+                width: '100%',
+                height: '100%',
+                allow:
+                  'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture',
+                allowFullScreen: !0,
+              }),
+            ),
             o.a.createElement(
               'div',
               {className: 'fbr thumb-info'},
