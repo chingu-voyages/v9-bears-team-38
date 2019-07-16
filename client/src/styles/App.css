@@ -95,6 +95,7 @@ a:active {
 }
 
 .header {
+  position: fixed;
   grid-column: c1 / c2;
   grid-row: r1 / r2;
   display: grid;
