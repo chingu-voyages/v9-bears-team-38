@@ -98,6 +98,10 @@ p {
   font-size: 0.9em;
 }
 
+/* Mobile Landscape */
+@media only screen and (max-width: 850px) and (max-height: 450px) {
+}
+
 @media only screen and (min-width: 600px) {
   .vid-info-container {
     height: 300px;
