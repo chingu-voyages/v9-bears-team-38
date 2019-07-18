@@ -1,19 +1,29 @@
 # Bears Team 38
 
-This is a project repo for Chingu Bears Team 38
+This repo houses The Chingu Learning Portal, our team project from Chingu Voyage
+8
 
-### Custom React Boilerplate:
+### About this project
 
-This project was bootstrapped with a custom
-[React boilerplate](https://github.com/ZumDeWald/ReactBoilerplate) one of the
-team members made.
+- We chose to build this 'Learning Portal' to hold all the videos relative to
+  the Chingu community in one central place.
 
-### Start it up!
+- Sources include the Chingu Youtube page, Medium articles, and submissions from
+  other teams.
 
-(Until we get a live link): clone this repo and run `npm start` from within the
-project directory
+- Videos can be filtered by category (playlists) and are searchable including
+  partial matches in the title, category, or tags.
 
-### Dev Dependencies
+- Video info is hosted in an Mongo Atlas database. Admin users can log in and
+  add new video information directly from a form inside this app.
+
+### Check it out
+
+Live Link: https://chingu-lp.herokuapp.com/
+
+- (This is a Heroku App and might take several seconds to initially load)
+
+### Dependencies
 
 - [Husky](https://www.npmjs.com/package/husky)
 - [Prettier](https://www.npmjs.com/package/prettier)
@@ -24,12 +34,15 @@ project directory
 - React
 - React-DOM
 
-### Testing Related Dependencies
+### Languages / Tech
 
-- Jest
-- [Jest-DOM](https://www.npmjs.com/package/jest-dom)
-- [Jest-Axe](https://www.npmjs.com/package/jest-axe)
-- [Jest-Watch-Typeahead](https://www.npmjs.com/package/jest-watch-typeahead)
-- [@Testing-Library/React](https://www.npmjs.com/package/@testing-library/react)
-- [CSS-Loader](https://www.npmjs.com/package/css-loader)
-- [Style-Loader](https://www.npmjs.com/package/style-loader)
+- CSS3 / CSS variables / Grid
+- JSX
+- React Hooks to build a Redux style store
+- MongoDB Atlas
+
+#### Custom React Boilerplate:
+
+This project was bootstrapped with a custom
+[React boilerplate](https://github.com/ZumDeWald/ReactBoilerplate) one of the
+team members made and not Create-React-App
