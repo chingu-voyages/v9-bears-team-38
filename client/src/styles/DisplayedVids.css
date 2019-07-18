@@ -58,7 +58,6 @@
     grid-column: dvc2 / dvc3;
     grid-row: dvr1 / dvr2;
     width: 100%;
-    height: 320px;
     margin-bottom: 0.5em;
   }
 
@@ -66,19 +65,19 @@
     grid-column: dvc1 / dvc2;
     grid-row: dvr1 / dvr2;
     width: 100%;
-    padding: 1.3em 0.5em 0 0;
+    padding: 2em 0.5em 0 0;
     list-style-type: none;
     border-right: 2px solid var(--color-theme);
-    max-height: calc(100vh - 50px);
     overflow: scroll;
   }
 
   .current-displayed {
     position: absolute;
-    top: 55px;
-    left: 0;
-    width: 205px;
+    top: 52px;
+    left: 10px;
+    width: 130px;
     border: none;
+    border-radius: 10px;
     background-color: var(--color-lgray);
     z-index: 3;
   }
