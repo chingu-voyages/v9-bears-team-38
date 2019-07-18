@@ -66,11 +66,21 @@
     grid-column: dvc1 / dvc2;
     grid-row: dvr1 / dvr2;
     width: 100%;
-    padding-right: 0.5em;
+    padding: 1.3em 0.5em 0 0;
     list-style-type: none;
     border-right: 2px solid var(--color-theme);
     max-height: calc(100vh - 50px);
     overflow: scroll;
+  }
+
+  .current-displayed {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 205px;
+    border: none;
+    background-color: var(--color-lgray);
+    z-index: 3;
   }
 
   /* Search Error */
