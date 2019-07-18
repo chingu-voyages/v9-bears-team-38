@@ -11,7 +11,7 @@
 .main-vid {
   width: 100%;
   height: 320px;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.5em;
 }
 
 .thumbs {
@@ -45,7 +45,52 @@
   width: 100%;
 }
 
-@media only screen and (min-width: 600px) {
+/* Mobile Landscape */
+@media only screen and (max-width: 850px) and (max-height: 450px) {
+  .all-vids {
+    display: grid;
+    grid-template-columns: [dvc1] 1fr [dvc2] 3fr [dvc3];
+    grid-template-rows: [dvr1] 1fr [dvr2];
+    grid-gap: 0;
+  }
+
+  .main-vid {
+    grid-column: dvc2 / dvc3;
+    grid-row: dvr1 / dvr2;
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+
+  .thumbs {
+    grid-column: dvc1 / dvc2;
+    grid-row: dvr1 / dvr2;
+    width: 100%;
+    padding: 2em 0.5em 0 0;
+    list-style-type: none;
+    border-right: 2px solid var(--color-theme);
+    overflow: scroll;
+  }
+
+  .current-displayed {
+    position: absolute;
+    top: 52px;
+    left: 10px;
+    width: 130px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-lgray);
+    z-index: 3;
+  }
+
+  /* Search Error */
+  .search-error {
+    grid-column: dvc2 / dvc3;
+    grid-row: dvr1 / dvr2;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (min-height: 450px) {
   .main-vid {
     height: 400px;
   }
@@ -55,7 +100,7 @@
   }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 750px) and (min-height: 450px) {
   .thumbs {
     flex-flow: row wrap;
     justify-content: space-evenly;
@@ -63,5 +108,5 @@
   }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 900px) and (min-height: 450px) {
 }
